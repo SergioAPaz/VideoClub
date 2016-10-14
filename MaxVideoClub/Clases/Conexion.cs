@@ -36,9 +36,14 @@ namespace MaxVideoClub.Clases
         public string insertar(string titulo, int anio, string genero, int existencias, string fecha)
         {
             string salida = "Guardado con exito.";
+            int disponibles;
+            int en_renta;
             try
             {
-                sentencia = new SqlCommand("insert into peliculas(Titulo,Anio,Genero,Existencias,Fecha_de_ingreso) values('" + titulo + "'," + anio + ",'" + genero + "'," + existencias + ",'" + fecha + "')", conexion);
+                disponibles = existencias;
+                en_renta = existencias - disponibles;
+
+                sentencia = new SqlCommand("insert into peliculas(Titulo,Anio,Genero,Existencias,Fecha_de_ingreso,Disponibles,En_renta) values('" + titulo + "'," + anio + ",'" + genero + "'," + existencias + ",'" + fecha + "'," + disponibles + "," + en_renta + ")", conexion);
 
                 sentencia.ExecuteNonQuery();
 
@@ -73,11 +78,12 @@ namespace MaxVideoClub.Clases
             return contador;
         }
 
+        //CARGAR PELICULAS DENTRO DE DATAGRIDVIEW
         public void CargarPeliculas(DataGridView dgv)
         {
             try
             {
-                SqlDataAdapter = new SqlDataAdapter("Select Titulo,Anio,Genero,Existencias,Fecha_de_ingreso from peliculas", conexion);
+                SqlDataAdapter = new SqlDataAdapter("Select Titulo,Anio,Genero,Existencias,Fecha_de_ingreso,En_renta,Disponibles from peliculas", conexion);
                 DataTable = new DataTable();
                 SqlDataAdapter.Fill(DataTable);
                 dgv.DataSource = DataTable;

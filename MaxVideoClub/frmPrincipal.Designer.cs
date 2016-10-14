@@ -86,7 +86,6 @@
             // 
             // button7
             // 
-            this.button7.AllowDrop = true;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.Location = new System.Drawing.Point(162, 75);
@@ -146,7 +145,7 @@
             this.button4.Location = new System.Drawing.Point(6, 5);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 64);
-            this.button4.TabIndex = 15;
+            this.button4.TabIndex = 5;
             this.button4.Text = "Administrar socios";
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseCompatibleTextRendering = true;

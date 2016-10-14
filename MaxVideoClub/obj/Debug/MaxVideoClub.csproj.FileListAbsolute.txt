@@ -22,3 +22,5 @@ F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmPrincipal.resources
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.Properties.Resources.resources
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.csproj.GenerateResource.Cache
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.AdminSocios.resources
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmModificarPelicula.resources

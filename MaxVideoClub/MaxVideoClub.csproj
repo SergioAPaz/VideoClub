@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminSocios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSocios.Designer.cs">
+      <DependentUpon>AdminSocios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="fmLogin.cs">
       <SubType>Form</SubType>
@@ -61,6 +67,12 @@
     </Compile>
     <Compile Include="frmAdminsAccounts.Designer.cs">
       <DependentUpon>frmAdminsAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarPelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarPelicula.Designer.cs">
+      <DependentUpon>frmModificarPelicula.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPeliculas.cs">
       <SubType>Form</SubType>
@@ -76,11 +88,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminSocios.resx">
+      <DependentUpon>AdminSocios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fmLogin.resx">
       <DependentUpon>fmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminsAccounts.resx">
       <DependentUpon>frmAdminsAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarPelicula.resx">
+      <DependentUpon>frmModificarPelicula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPeliculas.resx">
       <DependentUpon>frmPeliculas.cs</DependentUpon>

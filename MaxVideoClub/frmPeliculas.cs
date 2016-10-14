@@ -33,15 +33,31 @@ namespace MaxVideoClub
         {
             txtFiltro.GotFocus += new EventHandler(this.TextGotFocus);
             txtFiltro.LostFocus += new EventHandler(this.TextLostFocus);
-          
             c.CargarPeliculas(dgvPeliculas);
-
-
             NumerarTabla();
+
+
+
+
+
+            DataGridViewButtonColumn ButtonColumn = new DataGridViewButtonColumn();
+            ButtonColumn.Name = "Editar pelicula";
+            ButtonColumn.Text = "Uni";
             
+            int columnIndex = 7;
+
+            if (dgvPeliculas.Columns["Editar pelicula"] == null)
+            {
+                dgvPeliculas.Columns.Insert(columnIndex, ButtonColumn);
+            }
+            dgvPeliculas.CellClick += dataGridViewSoftware_CellClick;
+
+
+
+
 
         }
-
+        //BOTON PARA GUARDAR
         private void button1_Click(object sender, EventArgs e)
         {
             Boolean vRec= EspaciosVacios();
@@ -101,9 +117,10 @@ namespace MaxVideoClub
            
         }
 
+
+        //FILTRO TXTBOX
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
             if (cmbFiltro.Text=="Titulo")
             {
                 
@@ -162,7 +179,8 @@ namespace MaxVideoClub
                 tb.ForeColor = Color.LightGray;
                 
                 c.CargarPeliculas(dgvPeliculas);
-                
+                NumerarTabla();
+
             }
                     
         }
@@ -175,6 +193,7 @@ namespace MaxVideoClub
         private void button2_Click(object sender, EventArgs e)
         {
             dgvPeliculas.Refresh();
+            NumerarTabla();
         }
 
 
@@ -189,6 +208,12 @@ namespace MaxVideoClub
             }
         }
 
-        
+        private void dataGridViewSoftware_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+                MessageBox.Show("hollaaa");
+            
+        }
+
+
     }
 }
