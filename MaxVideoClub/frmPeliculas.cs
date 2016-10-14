@@ -10,12 +10,13 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
 
+
 namespace MaxVideoClub
 {
     public partial class frmPeliculas : Form
     {
         Clases.Conexion c = new Clases.Conexion();
-        
+        BindingSource bs = new BindingSource();
         Regex validar = new Regex(@"^[a-zA-Z0-9._ñÑáéíóúÁÉÍÓÚ ]+$"); /*Solo texto y numeros y _*/
         Regex validar2 = new Regex(@"^[0-9]+$"); /*Solo numeros*/
 
@@ -30,16 +31,15 @@ namespace MaxVideoClub
 
         private void frmPeliculas_Load(object sender, EventArgs e)
         {
-            Clases.Conexion c = new Clases.Conexion();
+            txtFiltro.GotFocus += new EventHandler(this.TextGotFocus);
+            txtFiltro.LostFocus += new EventHandler(this.TextLostFocus);
+          
             c.CargarPeliculas(dgvPeliculas);
+
+
+            NumerarTabla();
             
-            //Columna Contadora de rows en DataGridView
-            for (int i = 0; i < dgvPeliculas.Rows.Count; i++)
-            {
-                DataGridViewRowHeaderCell cell = dgvPeliculas.Rows[i].HeaderCell;
-                cell.Value = (i + 1).ToString();
-                dgvPeliculas.Rows[i].HeaderCell = cell;
-            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -103,12 +103,92 @@ namespace MaxVideoClub
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-           
+
+            if (cmbFiltro.Text=="Titulo")
+            {
+                
+                ((DataTable)dgvPeliculas.DataSource).DefaultView.RowFilter = string.Format("Titulo like '%{0}%'", txtFiltro.Text.Trim().Replace("'", "''")     );
+                NumerarTabla();
+            }
+            else if (cmbFiltro.Text == "Año")
+            {
+               
+                ((DataTable)dgvPeliculas.DataSource).DefaultView.RowFilter = string.Format("Convert([Anio], System.String) like '%{0}%'", txtFiltro.Text.Trim());
+                NumerarTabla();
+            }
+            else if (cmbFiltro.Text == "Genero")
+            {
+                
+                ((DataTable)dgvPeliculas.DataSource).DefaultView.RowFilter = string.Format("Genero like '%{0}%'", txtFiltro.Text.Trim().Replace("'", "''"));
+                NumerarTabla();
+            }
+            else if (cmbFiltro.Text == "Existencias")
+            {
+               
+                ((DataTable)dgvPeliculas.DataSource).DefaultView.RowFilter = string.Format("Convert([Existencias], System.String) like '%{0}%'", txtFiltro.Text.Trim());
+                NumerarTabla();
+            }
+            else if (cmbFiltro.Text == "Cualquiera...")
+            {
+                
+                ((DataTable)dgvPeliculas.DataSource).DefaultView.RowFilter = string.Format("Convert([Anio], System.String) LIKE '%{0}%' OR [Titulo] LIKE '%{0}%' OR [Genero] LIKE '%{0}%' OR Convert([Existencias], System.String) LIKE '%{0}%' ", txtFiltro.Text.Trim());
+                NumerarTabla();
+            }
+
+
+
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
+
+        public void TextGotFocus(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Buscar...") 
+            {
+                tb.Text = "";
+                tb.ForeColor = Color.Black;
+            }
+        }
+        public void TextLostFocus(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "")
+            {
+                tb.Text="Buscar...";
+                tb.ForeColor = Color.LightGray;
+                
+                c.CargarPeliculas(dgvPeliculas);
+                
+            }
+                    
+        }
+
+        private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dgvPeliculas.Refresh();
+        }
+
+
+        //Funcion numeradora de rows en DataGridView
+        public void NumerarTabla()
+        {
+            for (int i = 0; i < dgvPeliculas.Rows.Count; i++)
+            {
+                DataGridViewRowHeaderCell cell = dgvPeliculas.Rows[i].HeaderCell;
+                cell.Value = (i + 1).ToString();
+                dgvPeliculas.Rows[i].HeaderCell = cell;
+            }
+        }
+
+        
     }
 }

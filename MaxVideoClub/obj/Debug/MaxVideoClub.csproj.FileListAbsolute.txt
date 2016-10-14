@@ -10,3 +10,15 @@ F:\Mis Archivos\Software projects\C#\MaxVideoClub\MaxVideoClub\MaxVideoClub\obj\
 F:\Mis Archivos\Software projects\C#\MaxVideoClub\MaxVideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmAdminsAccounts.resources
 F:\Mis Archivos\Software projects\C#\MaxVideoClub\MaxVideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmPeliculas.resources
 F:\Mis Archivos\Software projects\C#\MaxVideoClub\MaxVideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.csprojResolveAssemblyReference.cache
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\MaxVideoClub.exe.config
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.exe
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.pdb
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\MaxVideoClub.exe
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\MaxVideoClub.pdb
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.csprojResolveAssemblyReference.cache
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.fmLogin.resources
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmAdminsAccounts.resources
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmPeliculas.resources
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmPrincipal.resources
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.Properties.Resources.resources
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.csproj.GenerateResource.Cache

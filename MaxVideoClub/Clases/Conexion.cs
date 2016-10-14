@@ -22,7 +22,7 @@ namespace MaxVideoClub.Clases
         {
             try
             {
-                conexion = new SqlConnection("Data Source=.;Initial Catalog=videoclub_db;Integrated Security=True");
+                conexion = new SqlConnection("Data Source=.;Initial Catalog=videoclub_db1;Integrated Security=True");
                 conexion.Open();
             }
             catch (Exception ex)
