@@ -16,5 +16,10 @@ namespace MaxVideoClub
         {
             InitializeComponent();
         }
+
+        private void AdminSocios_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

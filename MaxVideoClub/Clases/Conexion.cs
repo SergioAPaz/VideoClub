@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MaxVideoClub.Clases
 {
-    class Conexion
+    public class Conexion
     {
-        SqlConnection conexion;
+        public static SqlConnection conexion;
         SqlCommand sentencia;
         SqlDataReader reader;
         DataTable DataTable;
@@ -52,6 +52,7 @@ namespace MaxVideoClub.Clases
             {
                 salida = ("Error al guardar registro.  " + ex.ToString());
                 
+
             }
             return salida;
         }
@@ -94,6 +95,24 @@ namespace MaxVideoClub.Clases
                 MessageBox.Show("Imposible llenar tabla con el contenido" + ex.ToString());
                 throw;
             }
+        }
+
+        public int consultaAnio(string Titulo)
+        {
+
+            int k = 0;
+                sentencia = new SqlCommand("select id from peliculas where Anio='" + Titulo + "'  ", conexion);
+                reader = sentencia.ExecuteReader();
+            String IdValue="";
+            while (reader.Read())
+            {
+                 IdValue=(String.Format("{0}", reader["id"]));
+               
+            }
+            reader.Close();
+            MessageBox.Show("Si jala" + IdValue);
+
+            return k;
         }
 
     }

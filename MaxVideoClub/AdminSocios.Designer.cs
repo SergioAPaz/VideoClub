@@ -49,6 +49,7 @@
             this.Controls.Add(this.label2);
             this.Name = "AdminSocios";
             this.Text = "Administrar socios";
+            this.Load += new System.EventHandler(this.AdminSocios_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

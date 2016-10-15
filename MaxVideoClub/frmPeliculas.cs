@@ -9,18 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-
-
 namespace MaxVideoClub
-{
+{ 
     public partial class frmPeliculas : Form
     {
         Clases.Conexion c = new Clases.Conexion();
         BindingSource bs = new BindingSource();
         Regex validar = new Regex(@"^[a-zA-Z0-9._ñÑáéíóúÁÉÍÓÚ ]+$"); /*Solo texto y numeros y _*/
         Regex validar2 = new Regex(@"^[0-9]+$"); /*Solo numeros*/
-
-
+        
+        
 
 
 
@@ -42,8 +40,8 @@ namespace MaxVideoClub
 
             DataGridViewButtonColumn ButtonColumn = new DataGridViewButtonColumn();
             ButtonColumn.Name = "Editar pelicula";
-            ButtonColumn.Text = "Uni";
-            
+           
+
             int columnIndex = 7;
 
             if (dgvPeliculas.Columns["Editar pelicula"] == null)
@@ -210,10 +208,27 @@ namespace MaxVideoClub
 
         private void dataGridViewSoftware_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-                MessageBox.Show("hollaaa");
+            int columnI4ndex=1;
+
+            String someString = dgvPeliculas[columnI4ndex, dgvPeliculas.CurrentCell.RowIndex].Value.ToString();
+
+            string msg = String.Format("Row: {0}, Column: {1}",
+     dgvPeliculas.CurrentCell.RowIndex,
+     dgvPeliculas.CurrentCell.ColumnIndex);
+            MessageBox.Show(msg, "Current Cell");
+
+            MessageBox.Show(someString);
+         
+            c.consultaAnio(someString);
+
+
             
+
         }
+        
 
 
     }
+
 }
+
