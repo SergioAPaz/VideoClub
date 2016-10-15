@@ -15,11 +15,23 @@ namespace MaxVideoClub
         public frmModificarPelicula()
         {
             InitializeComponent();
+            
         }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmModificarPelicula_Load(object sender, EventArgs e)
+        {
+            
+
+        }
+        public frmModificarPelicula(string id)
+        {
+            InitializeComponent();
+            txtTitulo.Text = id;
         }
     }
 }

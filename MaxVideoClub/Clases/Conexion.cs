@@ -97,23 +97,24 @@ namespace MaxVideoClub.Clases
             }
         }
 
-        public int consultaAnio(string Titulo)
-        {
 
-            int k = 0;
-                sentencia = new SqlCommand("select id from peliculas where Anio='" + Titulo + "'  ", conexion);
-                reader = sentencia.ExecuteReader();
+        //CONSULTA ID EN BASE AL TITULO DEL REGISTRO
+        public int consultaID(string Titulo)
+        {
+            sentencia = new SqlCommand("select id from peliculas where Titulo='" + Titulo + "'  ", conexion);
+            reader = sentencia.ExecuteReader();
             String IdValue="";
             while (reader.Read())
             {
-                 IdValue=(String.Format("{0}", reader["id"]));
-               
+                 IdValue=(String.Format("{0}", reader["id"]));   
             }
             reader.Close();
-            MessageBox.Show("Si jala" + IdValue);
 
-            return k;
+            int IdValue2=Convert.ToInt32(IdValue);
+            
+            return IdValue2;
         }
+
 
     }
 }

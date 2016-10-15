@@ -206,28 +206,23 @@ namespace MaxVideoClub
             }
         }
 
+
+        //METODO PARA SOLICITAR EL ID DEL REGISTRO A LA CLASE CONEXION
         private void dataGridViewSoftware_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int columnI4ndex=1;
-
+            frmModificarPelicula frmModificarPelicula = new frmModificarPelicula();
+            int columnI4ndex=0;
             String someString = dgvPeliculas[columnI4ndex, dgvPeliculas.CurrentCell.RowIndex].Value.ToString();
-
-            string msg = String.Format("Row: {0}, Column: {1}",
-     dgvPeliculas.CurrentCell.RowIndex,
-     dgvPeliculas.CurrentCell.ColumnIndex);
-            MessageBox.Show(msg, "Current Cell");
-
-            MessageBox.Show(someString);
-         
-            c.consultaAnio(someString);
+            c.consultaID(someString);  /*AQUI MANDA EL INDEX DEL ROW A LA CLASE CONEXION PARA HACER EL QUERY Y OBTENER EL ID DEL REGISTRO QUE ESTA EN EL ROW*/
 
 
-            
-
+            //PASA ID A FRMMODIFICARPELICULA
+            String x = Convert.ToString(c.consultaID(someString));  /*AQUI YA VA EL VALOR ID DEL REGISTRO*/
+            frmModificarPelicula frm2 = new frmModificarPelicula(x);
+            frm2.ShowDialog();
         }
         
-
-
+        
     }
 
 }
