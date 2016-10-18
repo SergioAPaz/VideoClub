@@ -18,10 +18,6 @@ namespace MaxVideoClub
         Regex validar = new Regex(@"^[a-zA-Z0-9._ñÑáéíóúÁÉÍÓÚ ]+$"); /*Solo texto y numeros y _*/
         Regex validar2 = new Regex(@"^[0-9]+$"); /*Solo numeros*/
         
-        
-
-
-
         public frmPeliculas()
         {
             InitializeComponent();
@@ -29,28 +25,27 @@ namespace MaxVideoClub
 
         private void frmPeliculas_Load(object sender, EventArgs e)
         {
+          
             txtFiltro.GotFocus += new EventHandler(this.TextGotFocus);
             txtFiltro.LostFocus += new EventHandler(this.TextLostFocus);
             c.CargarPeliculas(dgvPeliculas);
-            NumerarTabla();
 
 
 
 
 
-            DataGridViewButtonColumn ButtonColumn = new DataGridViewButtonColumn();
-            ButtonColumn.Name = "Editar pelicula";
-           
-
-            int columnIndex = 7;
-
-            if (dgvPeliculas.Columns["Editar pelicula"] == null)
-            {
-                dgvPeliculas.Columns.Insert(columnIndex, ButtonColumn);
-            }
-            dgvPeliculas.CellClick += dataGridViewSoftware_CellClick;
+            //CREACION EN TIEMPO DE EJECUCION DE BOTON EDITAR PELICULA EN DATAGRIDVIEW
+            //DataGridViewButtonColumn ButtonColumn = new DataGridViewButtonColumn();
+            //ButtonColumn.Name = "Editar pelicula";
 
 
+            //int columnIndex = 7;
+
+
+            //    dgvPeliculas.Columns.Insert(columnIndex, ButtonColumn);
+
+
+            //dgvPeliculas.CellClick += dataGridViewSoftware_CellClick;
 
 
 
@@ -110,10 +105,7 @@ namespace MaxVideoClub
             this.Close();
         }
 
-        private void dgvPeliculas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
+      
 
 
         //FILTRO TXTBOX
@@ -123,39 +115,34 @@ namespace MaxVideoClub
             {
                 
                 ((DataTable)dgvPeliculas.DataSource).DefaultView.RowFilter = string.Format("Titulo like '%{0}%'", txtFiltro.Text.Trim().Replace("'", "''")     );
-                NumerarTabla();
+               
             }
             else if (cmbFiltro.Text == "Año")
             {
                
                 ((DataTable)dgvPeliculas.DataSource).DefaultView.RowFilter = string.Format("Convert([Anio], System.String) like '%{0}%'", txtFiltro.Text.Trim());
-                NumerarTabla();
+               
             }
             else if (cmbFiltro.Text == "Genero")
             {
                 
                 ((DataTable)dgvPeliculas.DataSource).DefaultView.RowFilter = string.Format("Genero like '%{0}%'", txtFiltro.Text.Trim().Replace("'", "''"));
-                NumerarTabla();
+              
             }
             else if (cmbFiltro.Text == "Existencias")
             {
                
                 ((DataTable)dgvPeliculas.DataSource).DefaultView.RowFilter = string.Format("Convert([Existencias], System.String) like '%{0}%'", txtFiltro.Text.Trim());
-                NumerarTabla();
+             
             }
             else if (cmbFiltro.Text == "Cualquiera...")
             {
                 
                 ((DataTable)dgvPeliculas.DataSource).DefaultView.RowFilter = string.Format("Convert([Anio], System.String) LIKE '%{0}%' OR [Titulo] LIKE '%{0}%' OR [Genero] LIKE '%{0}%' OR Convert([Existencias], System.String) LIKE '%{0}%' ", txtFiltro.Text.Trim());
-                NumerarTabla();
+               
             }
 
 
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
 
         }
 
@@ -177,7 +164,7 @@ namespace MaxVideoClub
                 tb.ForeColor = Color.LightGray;
                 
                 c.CargarPeliculas(dgvPeliculas);
-                NumerarTabla();
+              
 
             }
                     
@@ -191,38 +178,52 @@ namespace MaxVideoClub
         private void button2_Click(object sender, EventArgs e)
         {
             dgvPeliculas.Refresh();
-            NumerarTabla();
+            c.CargarPeliculas(dgvPeliculas);
+
+
         }
 
-
-        //Funcion numeradora de rows en DataGridView
-        public void NumerarTabla()
+        //PASA VALOR DE TITULO A CLASE CONEXION O BORRAR REGISTRO
+        private void dgvPeliculas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            for (int i = 0; i < dgvPeliculas.Rows.Count; i++)
+            if (dgvPeliculas.CurrentCell.ColumnIndex == 0)
             {
-                DataGridViewRowHeaderCell cell = dgvPeliculas.Rows[i].HeaderCell;
-                cell.Value = (i + 1).ToString();
-                dgvPeliculas.Rows[i].HeaderCell = cell;
+               
+                int columnI4ndex = 2; //Columna de titulo para consultar registro
+                String someString = dgvPeliculas[columnI4ndex, dgvPeliculas.CurrentCell.RowIndex].Value.ToString();
+
+                c.consultaID(someString);
+            }
+            else if (dgvPeliculas.CurrentCell.ColumnIndex == 1)
+            {
+                int columnI4ndex = 2; //Columna de titulo para consultar registro
+                String TituloValue = dgvPeliculas[columnI4ndex, dgvPeliculas.CurrentCell.RowIndex].Value.ToString();
+                c.DeleteRegistry(TituloValue);
+                
             }
         }
 
 
-        //METODO PARA SOLICITAR EL ID DEL REGISTRO A LA CLASE CONEXION
-        private void dataGridViewSoftware_CellClick(object sender, DataGridViewCellEventArgs e)
+        //Funcion numeradora de rows en DataGridView
+        private void pintar_numeros(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            frmModificarPelicula frmModificarPelicula = new frmModificarPelicula();
-            int columnI4ndex=0;
-            String someString = dgvPeliculas[columnI4ndex, dgvPeliculas.CurrentCell.RowIndex].Value.ToString();
-            c.consultaID(someString);  /*AQUI MANDA EL INDEX DEL ROW A LA CLASE CONEXION PARA HACER EL QUERY Y OBTENER EL ID DEL REGISTRO QUE ESTA EN EL ROW*/
+            DataGridView dg = (DataGridView)sender;
+            // Current row record
+            string rowNumber = (e.RowIndex + 1).ToString();
 
+            // Format row based on number of records displayed by using leading zeros
+            while (rowNumber.Length < dg.RowCount.ToString().Length) rowNumber = "0" + rowNumber;
 
-            //PASA ID A FRMMODIFICARPELICULA
-            String x = Convert.ToString(c.consultaID(someString));  /*AQUI YA VA EL VALOR ID DEL REGISTRO*/
-            frmModificarPelicula frm2 = new frmModificarPelicula(x);
-            frm2.ShowDialog();
+            // Position text
+            SizeF size = e.Graphics.MeasureString(rowNumber, this.Font);
+            if (dg.RowHeadersWidth < (int)(size.Width + 20)) dg.RowHeadersWidth = (int)(size.Width + 20);
+
+            // Use default system text brush
+            Brush b = SystemBrushes.ControlText;
+
+            // Draw row number
+            e.Graphics.DrawString(rowNumber, dg.Font, b, e.RowBounds.Location.X + 15, e.RowBounds.Location.Y + ((e.RowBounds.Height - size.Height) / 2));
         }
-        
-        
     }
 
 }

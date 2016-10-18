@@ -39,8 +39,9 @@
             this.txtGenero = new System.Windows.Forms.TextBox();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.txtAnio = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,9 +49,10 @@
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 194);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 154);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(567, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(425, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
@@ -64,7 +66,7 @@
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(567, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(425, 25);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -78,93 +80,113 @@
             // 
             // txtExistencias
             // 
-            this.txtExistencias.Location = new System.Drawing.Point(360, 43);
+            this.txtExistencias.Location = new System.Drawing.Point(270, 35);
+            this.txtExistencias.Margin = new System.Windows.Forms.Padding(2);
             this.txtExistencias.Name = "txtExistencias";
-            this.txtExistencias.Size = new System.Drawing.Size(184, 22);
+            this.txtExistencias.Size = new System.Drawing.Size(139, 20);
             this.txtExistencias.TabIndex = 14;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 86);
+            this.label5.Location = new System.Drawing.Point(17, 70);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 17);
+            this.label5.Size = new System.Drawing.Size(31, 15);
             this.label5.TabIndex = 13;
             this.label5.Text = "Año:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(276, 93);
+            this.label4.Location = new System.Drawing.Point(207, 76);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 17);
+            this.label4.Size = new System.Drawing.Size(51, 15);
             this.label4.TabIndex = 12;
             this.label4.Text = "Genero:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(275, 46);
+            this.label3.Location = new System.Drawing.Point(206, 37);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 17);
+            this.label3.Size = new System.Drawing.Size(72, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Existencias:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 48);
+            this.label1.Location = new System.Drawing.Point(17, 39);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.Size = new System.Drawing.Size(40, 15);
             this.label1.TabIndex = 7;
             this.label1.Text = "Titulo:";
             // 
             // txtGenero
             // 
-            this.txtGenero.Location = new System.Drawing.Point(360, 86);
+            this.txtGenero.Location = new System.Drawing.Point(270, 70);
+            this.txtGenero.Margin = new System.Windows.Forms.Padding(2);
             this.txtGenero.Name = "txtGenero";
-            this.txtGenero.Size = new System.Drawing.Size(184, 22);
+            this.txtGenero.Size = new System.Drawing.Size(139, 20);
             this.txtGenero.TabIndex = 11;
             // 
             // txtTitulo
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(76, 43);
+            this.txtTitulo.Location = new System.Drawing.Point(57, 35);
+            this.txtTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(184, 22);
+            this.txtTitulo.Size = new System.Drawing.Size(139, 20);
             this.txtTitulo.TabIndex = 8;
             // 
             // txtAnio
             // 
-            this.txtAnio.Location = new System.Drawing.Point(76, 86);
+            this.txtAnio.Location = new System.Drawing.Point(57, 70);
+            this.txtAnio.Margin = new System.Windows.Forms.Padding(2);
             this.txtAnio.Name = "txtAnio";
-            this.txtAnio.Size = new System.Drawing.Size(184, 22);
+            this.txtAnio.Size = new System.Drawing.Size(139, 20);
             this.txtAnio.TabIndex = 9;
             // 
-            // button1
+            // btnGuardar
             // 
-            this.button1.Location = new System.Drawing.Point(432, 139);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 35);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGuardar.Location = new System.Drawing.Point(324, 113);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(84, 28);
+            this.btnGuardar.TabIndex = 15;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(314, 139);
+            this.button2.Location = new System.Drawing.Point(236, 113);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 35);
+            this.button2.Size = new System.Drawing.Size(84, 28);
             this.button2.TabIndex = 16;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(85, 113);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(38, 20);
+            this.txtId.TabIndex = 17;
             // 
             // frmModificarPelicula
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 216);
+            this.ClientSize = new System.Drawing.Size(425, 176);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtExistencias);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -176,6 +198,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmModificarPelicula";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -202,7 +225,8 @@
         private System.Windows.Forms.TextBox txtGenero;
         private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.TextBox txtAnio;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

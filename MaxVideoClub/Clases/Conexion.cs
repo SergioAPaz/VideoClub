@@ -99,21 +99,78 @@ namespace MaxVideoClub.Clases
 
 
         //CONSULTA ID EN BASE AL TITULO DEL REGISTRO
-        public int consultaID(string Titulo)
+        public void consultaID(string Titulo)
         {
-            sentencia = new SqlCommand("select id from peliculas where Titulo='" + Titulo + "'  ", conexion);
+            sentencia = new SqlCommand("select id,Titulo,Anio,Genero,Existencias from peliculas where Titulo='" + Titulo + "'  ", conexion);
             reader = sentencia.ExecuteReader();
-            String IdValue="";
+            String idValue = "";
+            String TituloValue = "";
+            String AnioValue = "";
+            String GeneroValue = "";
+            String ExistenciasValue = "";
+
             while (reader.Read())
             {
-                 IdValue=(String.Format("{0}", reader["id"]));   
+                idValue = (String.Format("{0}", reader["id"]));
+                TituloValue = (String.Format("{0}", reader["Titulo"]));
+                AnioValue = (String.Format("{0}", reader["Anio"]));
+                GeneroValue = (String.Format("{0}", reader["Genero"]));
+                ExistenciasValue = (String.Format("{0}", reader["Existencias"]));
             }
             reader.Close();
 
-            int IdValue2=Convert.ToInt32(IdValue);
+            frmModificarPelicula frmModificarPelicula1 = new frmModificarPelicula(idValue,TituloValue, AnioValue, GeneroValue, ExistenciasValue);
+
+            frmModificarPelicula1.ShowDialog();
             
-            return IdValue2;
         }
+
+
+
+        //Metodo para Editar peliculas
+        public string actualizar(string id,string titulo, int anio, string genero, int existencias)
+        {
+            string salida = "Registro actualizado con exito.";
+            String fecha1 = DateTime.Now.ToString("dd-MM-yyyy");
+           
+            try
+            {
+                int disponibles = existencias;
+                int en_renta = existencias - disponibles;
+                
+                sentencia = new SqlCommand("UPDATE peliculas SET Titulo='" +titulo+"', Anio="+anio+",Genero='"+genero+"',Existencias="+existencias+",Fecha_de_ingreso='"+fecha1+"' WHERE id="+id+"  ", conexion);
+
+                sentencia.ExecuteNonQuery();
+                
+            }
+            catch (Exception ex)
+            {
+                salida = ("Error al editar registro.  " + ex.ToString());
+
+
+            }
+            return salida;
+        }
+
+        public void DeleteRegistry(string Titulo)
+        {   
+            try
+            {
+                sentencia = new SqlCommand("DELETE FROM peliculas WHERE Titulo='"+Titulo+"'  ", conexion);
+                
+                sentencia.ExecuteNonQuery();
+                
+                MessageBox.Show("Registro eliminado con exito");
+
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show("Problemas al eliminar registro"+ex.ToString());
+            }
+           
+        }
+
 
 
     }
