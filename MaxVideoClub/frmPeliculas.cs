@@ -28,6 +28,8 @@ namespace MaxVideoClub
           
             txtFiltro.GotFocus += new EventHandler(this.TextGotFocus);
             txtFiltro.LostFocus += new EventHandler(this.TextLostFocus);
+ 
+            //FUNCION PARA LLENAR DATAGRIDVIEW
             c.CargarPeliculas(dgvPeliculas);
 
 
@@ -174,7 +176,7 @@ namespace MaxVideoClub
         {
 
         }
-
+        //BOTON ACTUALIZAR
         private void button2_Click(object sender, EventArgs e)
         {
             dgvPeliculas.Refresh();
@@ -189,16 +191,17 @@ namespace MaxVideoClub
             if (dgvPeliculas.CurrentCell.ColumnIndex == 0)
             {
                
-                int columnI4ndex = 2; //Columna de titulo para consultar registro
+                int columnI4ndex = 2; //Columna de NumID para consultar registro
                 String someString = dgvPeliculas[columnI4ndex, dgvPeliculas.CurrentCell.RowIndex].Value.ToString();
-
-                c.consultaID(someString);
+                int NumIDValue = Convert.ToInt32(someString);
+                c.consultaID(NumIDValue);
             }
             else if (dgvPeliculas.CurrentCell.ColumnIndex == 1)
             {
-                int columnI4ndex = 2; //Columna de titulo para consultar registro
+                int columnI4ndex = 2; //Columna de NumID para consultar registro
                 String TituloValue = dgvPeliculas[columnI4ndex, dgvPeliculas.CurrentCell.RowIndex].Value.ToString();
-                c.DeleteRegistry(TituloValue);
+                int NumIDValue = Convert.ToInt32(TituloValue);
+                c.DeleteRegistry(NumIDValue);
                 
             }
         }

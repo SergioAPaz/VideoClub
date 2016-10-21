@@ -62,6 +62,12 @@
     <Compile Include="fmLogin.Designer.cs">
       <DependentUpon>fmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewRent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewRent.Designer.cs">
+      <DependentUpon>frmNewRent.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdminsAccounts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,12 @@
     </Compile>
     <Compile Include="frmModificarPelicula.Designer.cs">
       <DependentUpon>frmModificarPelicula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPartners.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPartners.Designer.cs">
+      <DependentUpon>frmPartners.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPeliculas.cs">
       <SubType>Form</SubType>
@@ -99,6 +111,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarPelicula.resx">
       <DependentUpon>frmModificarPelicula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewRent.resx">
+      <DependentUpon>frmNewRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPartners.resx">
+      <DependentUpon>frmPartners.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPeliculas.resx">
       <DependentUpon>frmPeliculas.cs</DependentUpon>

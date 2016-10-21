@@ -14,6 +14,7 @@ namespace MaxVideoClub
     {
 
         frmAdminsAccounts frmAdminsAccounts = new frmAdminsAccounts();
+        frmPartners frmPartners = new frmPartners();
         frmPeliculas frmPeliculas = new frmPeliculas();
 
         public frmPrincipal()
@@ -49,6 +50,12 @@ namespace MaxVideoClub
             frmPeliculas.ShowDialog();
         
            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            frmPartners.ShowDialog();
         }
     }
 }

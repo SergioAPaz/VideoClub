@@ -30,5 +30,14 @@ namespace MaxVideoClub
             frmPrincipal.ShowDialog();
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Random AleatoryNumber = new Random(DateTime.Now.Millisecond);
+           
+          
+
+            MessageBox.Show(Convert.ToString( AleatoryNumber.Next())+"second"+Convert.ToString(AleatoryNumber.Next()));
+        }
     }
 }

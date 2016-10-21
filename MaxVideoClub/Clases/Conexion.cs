@@ -38,15 +38,21 @@ namespace MaxVideoClub.Clases
             string salida = "Guardado con exito.";
             int disponibles;
             int en_renta;
+
+            Random AleatoryNumber = new Random(DateTime.Now.Millisecond);
+           
             try
             {
                 disponibles = existencias;
                 en_renta = existencias - disponibles;
+                
+                for (int i = 0; i < existencias; i++)
+                {
+                    sentencia = new SqlCommand("insert into peliculas(Titulo,Anio,Genero,Existencias,Fecha_de_ingreso,Disponibles,En_renta,NumID) values('" + titulo + "'," + anio + ",'" + genero + "'," + existencias + ",'" + fecha + "'," + disponibles + "," + en_renta + "," + AleatoryNumber.Next() + ")", conexion);
 
-                sentencia = new SqlCommand("insert into peliculas(Titulo,Anio,Genero,Existencias,Fecha_de_ingreso,Disponibles,En_renta) values('" + titulo + "'," + anio + ",'" + genero + "'," + existencias + ",'" + fecha + "'," + disponibles + "," + en_renta + ")", conexion);
-
-                sentencia.ExecuteNonQuery();
-
+                    sentencia.ExecuteNonQuery();
+                }
+             
             }
             catch (Exception ex)
             {
@@ -84,7 +90,7 @@ namespace MaxVideoClub.Clases
         {
             try
             {
-                SqlDataAdapter = new SqlDataAdapter("Select Titulo,Anio,Genero,Existencias,Fecha_de_ingreso,En_renta,Disponibles from peliculas", conexion);
+                SqlDataAdapter = new SqlDataAdapter("Select NumID,Titulo,Anio,Genero,Existencias,En_renta,Disponibles,Fecha_de_ingreso from peliculas", conexion);
                 DataTable = new DataTable();
                 SqlDataAdapter.Fill(DataTable);
                 dgv.DataSource = DataTable;
@@ -98,16 +104,17 @@ namespace MaxVideoClub.Clases
         }
 
 
-        //CONSULTA ID EN BASE AL TITULO DEL REGISTRO
-        public void consultaID(string Titulo)
+        //CONSULTA ID EN BASE AL TITULO DEL REGISTRO para mandar a frmModificarPelicula
+        public void consultaID(int NumID)
         {
-            sentencia = new SqlCommand("select id,Titulo,Anio,Genero,Existencias from peliculas where Titulo='" + Titulo + "'  ", conexion);
+            sentencia = new SqlCommand("select id,Titulo,Anio,Genero,Existencias from peliculas where NumID=" + NumID + "  ", conexion);
             reader = sentencia.ExecuteReader();
             String idValue = "";
             String TituloValue = "";
             String AnioValue = "";
             String GeneroValue = "";
             String ExistenciasValue = "";
+           
 
             while (reader.Read())
             {
@@ -119,7 +126,7 @@ namespace MaxVideoClub.Clases
             }
             reader.Close();
 
-            frmModificarPelicula frmModificarPelicula1 = new frmModificarPelicula(idValue,TituloValue, AnioValue, GeneroValue, ExistenciasValue);
+            frmModificarPelicula frmModificarPelicula1 = new frmModificarPelicula(idValue,TituloValue, AnioValue, GeneroValue, ExistenciasValue,NumID);
 
             frmModificarPelicula1.ShowDialog();
             
@@ -152,11 +159,11 @@ namespace MaxVideoClub.Clases
             return salida;
         }
 
-        public void DeleteRegistry(string Titulo)
+        public void DeleteRegistry(int NumIDValue)
         {   
             try
             {
-                sentencia = new SqlCommand("DELETE FROM peliculas WHERE Titulo='"+Titulo+"'  ", conexion);
+                sentencia = new SqlCommand("DELETE FROM peliculas WHERE NumID="+ NumIDValue + "  ", conexion);
                 
                 sentencia.ExecuteNonQuery();
                 
