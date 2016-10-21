@@ -12,6 +12,11 @@ namespace MaxVideoClub
 {
     public partial class frmPartners : Form
     {
+        Clases.Conexion c = new Clases.Conexion();
+        Clases.Clientes clients = new Clases.Clientes();
+
+
+
         public frmPartners()
         {
             InitializeComponent();
@@ -30,6 +35,11 @@ namespace MaxVideoClub
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmPartners_Load(object sender, EventArgs e)
+        {
+            clients.CargarClientes(dgvParthers);
         }
     }
 }

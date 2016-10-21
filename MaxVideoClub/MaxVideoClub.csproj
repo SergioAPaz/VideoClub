@@ -55,6 +55,7 @@
     <Compile Include="AdminSocios.Designer.cs">
       <DependentUpon>AdminSocios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases\Clientes.cs" />
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="fmLogin.cs">
       <SubType>Form</SubType>

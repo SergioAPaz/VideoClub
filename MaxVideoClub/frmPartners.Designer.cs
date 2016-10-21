@@ -46,10 +46,20 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvParthers = new System.Windows.Forms.DataGridView();
+            this.btbActualizar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.EditColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DeleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParthers)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -78,7 +88,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(356, 84);
+            this.textBox2.Location = new System.Drawing.Point(356, 83);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(184, 22);
@@ -95,7 +105,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(282, 86);
+            this.label7.Location = new System.Drawing.Point(282, 85);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 17);
             this.label7.TabIndex = 9;
@@ -176,7 +186,7 @@
             // 
             // txtAnio
             // 
-            this.txtAnio.Location = new System.Drawing.Point(92, 84);
+            this.txtAnio.Location = new System.Drawing.Point(92, 83);
             this.txtAnio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.Size = new System.Drawing.Size(184, 22);
@@ -195,7 +205,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 88);
+            this.label5.Location = new System.Drawing.Point(28, 87);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 17);
             this.label5.TabIndex = 4;
@@ -233,34 +243,142 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(67, 22);
             this.toolStripLabel1.Text = "Regresar";
             // 
-            // dataGridView1
+            // dgvParthers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 220);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(976, 281);
-            this.dataGridView1.TabIndex = 9;
+            this.dgvParthers.AllowUserToAddRows = false;
+            this.dgvParthers.AllowUserToDeleteRows = false;
+            this.dgvParthers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvParthers.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvParthers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvParthers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EditColumn,
+            this.DeleteColumn});
+            this.dgvParthers.Location = new System.Drawing.Point(12, 220);
+            this.dgvParthers.Name = "dgvParthers";
+            this.dgvParthers.ReadOnly = true;
+            this.dgvParthers.RowTemplate.Height = 24;
+            this.dgvParthers.Size = new System.Drawing.Size(976, 281);
+            this.dgvParthers.TabIndex = 9;
+            // 
+            // btbActualizar
+            // 
+            this.btbActualizar.Location = new System.Drawing.Point(858, 153);
+            this.btbActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btbActualizar.Name = "btbActualizar";
+            this.btbActualizar.Size = new System.Drawing.Size(127, 32);
+            this.btbActualizar.TabIndex = 10;
+            this.btbActualizar.Text = "Actualizar tabla";
+            this.btbActualizar.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cmbFiltro);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.txtFiltro);
+            this.groupBox2.Location = new System.Drawing.Point(630, 27);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(355, 118);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            // 
+            // cmbFiltro
+            // 
+            this.cmbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFiltro.FormattingEnabled = true;
+            this.cmbFiltro.Items.AddRange(new object[] {
+            "Titulo",
+            "Año",
+            "Genero",
+            "Existencias",
+            "Disponibles",
+            "Cualquiera..."});
+            this.cmbFiltro.Location = new System.Drawing.Point(213, 25);
+            this.cmbFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbFiltro.Name = "cmbFiltro";
+            this.cmbFiltro.Size = new System.Drawing.Size(121, 24);
+            this.cmbFiltro.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("NewsGoth Lt BT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(132, 30);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 16);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Buscar por:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 17);
+            this.label9.TabIndex = 9;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("NewsGoth Lt BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(11, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 24);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Filtrar";
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.ForeColor = System.Drawing.Color.LightGray;
+            this.txtFiltro.Location = new System.Drawing.Point(56, 66);
+            this.txtFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(279, 22);
+            this.txtFiltro.TabIndex = 8;
+            this.txtFiltro.Text = "Buscar...";
+            this.txtFiltro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // EditColumn
+            // 
+            this.EditColumn.HeaderText = "Editar";
+            this.EditColumn.Name = "EditColumn";
+            this.EditColumn.ReadOnly = true;
+            this.EditColumn.Width = 51;
+            // 
+            // DeleteColumn
+            // 
+            this.DeleteColumn.HeaderText = "Borrar";
+            this.DeleteColumn.Name = "DeleteColumn";
+            this.DeleteColumn.ReadOnly = true;
+            this.DeleteColumn.Width = 54;
             // 
             // frmPartners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 537);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btbActualizar);
+            this.Controls.Add(this.dgvParthers);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.MaximizeBox = false;
             this.Name = "frmPartners";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPartners";
+            this.Load += new System.EventHandler(this.frmPartners_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParthers)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,6 +404,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvParthers;
+        private System.Windows.Forms.Button btbActualizar;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cmbFiltro;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.DataGridViewButtonColumn EditColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteColumn;
     }
 }
