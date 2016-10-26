@@ -34,22 +34,7 @@ namespace MaxVideoClub
 
 
 
-
-
-            //CREACION EN TIEMPO DE EJECUCION DE BOTON EDITAR PELICULA EN DATAGRIDVIEW
-            //DataGridViewButtonColumn ButtonColumn = new DataGridViewButtonColumn();
-            //ButtonColumn.Name = "Editar pelicula";
-
-
-            //int columnIndex = 7;
-
-
-            //    dgvPeliculas.Columns.Insert(columnIndex, ButtonColumn);
-
-
-            //dgvPeliculas.CellClick += dataGridViewSoftware_CellClick;
-
-
+            
 
         }
         //BOTON PARA GUARDAR
@@ -101,7 +86,7 @@ namespace MaxVideoClub
         }
 
 
-
+        //BOTON CERRAR VENTANA
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -172,10 +157,7 @@ namespace MaxVideoClub
                     
         }
 
-        private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+   
         //BOTON ACTUALIZAR
         private void button2_Click(object sender, EventArgs e)
         {

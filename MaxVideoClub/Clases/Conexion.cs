@@ -90,7 +90,7 @@ namespace MaxVideoClub.Clases
         {
             try
             {
-                SqlDataAdapter = new SqlDataAdapter("Select NumID,Titulo,Anio,Genero,Existencias,En_renta,Disponibles,Fecha_de_ingreso from peliculas", conexion);
+                SqlDataAdapter = new SqlDataAdapter("Select NumID,Titulo,Anio,Genero,Existencias,En_renta,Disponibles,Fecha_de_ingreso from peliculas", Properties.Settings.Default.Conexion);
                 DataTable = new DataTable();
                 SqlDataAdapter.Fill(DataTable);
                 dgv.DataSource = DataTable;

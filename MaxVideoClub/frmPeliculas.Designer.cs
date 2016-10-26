@@ -294,7 +294,7 @@
             this.cmbFiltro.Name = "cmbFiltro";
             this.cmbFiltro.Size = new System.Drawing.Size(92, 21);
             this.cmbFiltro.TabIndex = 11;
-            this.cmbFiltro.SelectedIndexChanged += new System.EventHandler(this.cmbFiltro_SelectedIndexChanged);
+            
             // 
             // label8
             // 

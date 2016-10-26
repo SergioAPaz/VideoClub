@@ -29,24 +29,26 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtIfe = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtExistencias = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtEdad = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtGenero = new System.Windows.Forms.TextBox();
-            this.txtTitulo = new System.Windows.Forms.TextBox();
-            this.txtAnio = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.dgvParthers = new System.Windows.Forms.DataGridView();
+            this.EditColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DeleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btbActualizar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmbFiltro = new System.Windows.Forms.ComboBox();
@@ -54,8 +56,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
-            this.EditColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.DeleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParthers)).BeginInit();
@@ -64,18 +64,18 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtIfe);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtEmail);
+            this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.txtExistencias);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtEdad);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtGenero);
-            this.groupBox1.Controls.Add(this.txtTitulo);
-            this.groupBox1.Controls.Add(this.txtAnio);
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.txtApellido);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
@@ -86,21 +86,38 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-            // textBox2
+            // txtIfe
             // 
-            this.textBox2.Location = new System.Drawing.Point(356, 83);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(184, 22);
-            this.textBox2.TabIndex = 11;
+            this.txtIfe.Location = new System.Drawing.Point(356, 116);
+            this.txtIfe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIfe.Name = "txtIfe";
+            this.txtIfe.Size = new System.Drawing.Size(184, 22);
+            this.txtIfe.TabIndex = 13;
             // 
-            // textBox1
+            // label4
             // 
-            this.textBox1.Location = new System.Drawing.Point(356, 52);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 22);
-            this.textBox1.TabIndex = 10;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(282, 118);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 17);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "IFE:";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(356, 83);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(184, 22);
+            this.txtEmail.TabIndex = 11;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(356, 52);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(184, 22);
+            this.txtTelefono.TabIndex = 10;
             // 
             // label7
             // 
@@ -132,31 +149,22 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(445, 136);
+            this.button1.Location = new System.Drawing.Point(445, 143);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 32);
             this.button1.TabIndex = 6;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtExistencias
+            // txtEdad
             // 
-            this.txtExistencias.Location = new System.Drawing.Point(92, 116);
-            this.txtExistencias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtExistencias.Name = "txtExistencias";
-            this.txtExistencias.Size = new System.Drawing.Size(184, 22);
-            this.txtExistencias.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(353, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Cliente:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.txtEdad.Location = new System.Drawing.Point(92, 116);
+            this.txtEdad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.Size = new System.Drawing.Size(184, 22);
+            this.txtEdad.TabIndex = 5;
             // 
             // label3
             // 
@@ -168,30 +176,22 @@
             this.label3.Text = "Edad:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // txtGenero
+            // txtNombre
             // 
-            this.txtGenero.Location = new System.Drawing.Point(417, 20);
-            this.txtGenero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtGenero.Name = "txtGenero";
-            this.txtGenero.Size = new System.Drawing.Size(123, 22);
-            this.txtGenero.TabIndex = 2;
+            this.txtNombre.Location = new System.Drawing.Point(92, 52);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(184, 22);
+            this.txtNombre.TabIndex = 0;
             // 
-            // txtTitulo
+            // txtApellido
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(92, 52);
-            this.txtTitulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(184, 22);
-            this.txtTitulo.TabIndex = 0;
-            // 
-            // txtAnio
-            // 
-            this.txtAnio.Location = new System.Drawing.Point(92, 83);
-            this.txtAnio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtAnio.Name = "txtAnio";
-            this.txtAnio.Size = new System.Drawing.Size(184, 22);
-            this.txtAnio.TabIndex = 1;
-            this.txtAnio.TextChanged += new System.EventHandler(this.txtAnio_TextChanged);
+            this.txtApellido.Location = new System.Drawing.Point(92, 83);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(184, 22);
+            this.txtApellido.TabIndex = 1;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtAnio_TextChanged);
             // 
             // label1
             // 
@@ -242,6 +242,7 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(67, 22);
             this.toolStripLabel1.Text = "Regresar";
+            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 
             // dgvParthers
             // 
@@ -259,16 +260,33 @@
             this.dgvParthers.RowTemplate.Height = 24;
             this.dgvParthers.Size = new System.Drawing.Size(976, 281);
             this.dgvParthers.TabIndex = 9;
+            this.dgvParthers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParthers_CellContentClick);
+            this.dgvParthers.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.pintar_numeros);
+            // 
+            // EditColumn
+            // 
+            this.EditColumn.HeaderText = "Editar";
+            this.EditColumn.Name = "EditColumn";
+            this.EditColumn.ReadOnly = true;
+            this.EditColumn.Width = 51;
+            // 
+            // DeleteColumn
+            // 
+            this.DeleteColumn.HeaderText = "Borrar";
+            this.DeleteColumn.Name = "DeleteColumn";
+            this.DeleteColumn.ReadOnly = true;
+            this.DeleteColumn.Width = 54;
             // 
             // btbActualizar
             // 
-            this.btbActualizar.Location = new System.Drawing.Point(858, 153);
+            this.btbActualizar.Location = new System.Drawing.Point(858, 163);
             this.btbActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btbActualizar.Name = "btbActualizar";
             this.btbActualizar.Size = new System.Drawing.Size(127, 32);
             this.btbActualizar.TabIndex = 10;
             this.btbActualizar.Text = "Actualizar tabla";
             this.btbActualizar.UseVisualStyleBackColor = true;
+            this.btbActualizar.Click += new System.EventHandler(this.btbActualizar_Click);
             // 
             // groupBox2
             // 
@@ -290,11 +308,13 @@
             this.cmbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFiltro.FormattingEnabled = true;
             this.cmbFiltro.Items.AddRange(new object[] {
-            "Titulo",
-            "Año",
-            "Genero",
-            "Existencias",
-            "Disponibles",
+            "Nombre",
+            "Apellido",
+            "Edad",
+            "NumDeCliente",
+            "Telefono",
+            "Email",
+            "Folio_IFE",
             "Cualquiera..."});
             this.cmbFiltro.Location = new System.Drawing.Point(213, 25);
             this.cmbFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -340,20 +360,7 @@
             this.txtFiltro.TabIndex = 8;
             this.txtFiltro.Text = "Buscar...";
             this.txtFiltro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // EditColumn
-            // 
-            this.EditColumn.HeaderText = "Editar";
-            this.EditColumn.Name = "EditColumn";
-            this.EditColumn.ReadOnly = true;
-            this.EditColumn.Width = 51;
-            // 
-            // DeleteColumn
-            // 
-            this.DeleteColumn.HeaderText = "Borrar";
-            this.DeleteColumn.Name = "DeleteColumn";
-            this.DeleteColumn.ReadOnly = true;
-            this.DeleteColumn.Width = 54;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // frmPartners
             // 
@@ -389,21 +396,19 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtExistencias;
+        private System.Windows.Forms.TextBox txtEdad;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtGenero;
-        private System.Windows.Forms.TextBox txtTitulo;
-        private System.Windows.Forms.TextBox txtAnio;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.DataGridView dgvParthers;
         private System.Windows.Forms.Button btbActualizar;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -414,5 +419,7 @@
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.DataGridViewButtonColumn EditColumn;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteColumn;
+        private System.Windows.Forms.TextBox txtIfe;
+        private System.Windows.Forms.Label label4;
     }
 }

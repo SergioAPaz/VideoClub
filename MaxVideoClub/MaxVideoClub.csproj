@@ -63,6 +63,12 @@
     <Compile Include="fmLogin.Designer.cs">
       <DependentUpon>fmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificarParther.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarParther.Designer.cs">
+      <DependentUpon>frmModificarParther.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNewRent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminsAccounts.resx">
       <DependentUpon>frmAdminsAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarParther.resx">
+      <DependentUpon>frmModificarParther.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarPelicula.resx">
       <DependentUpon>frmModificarPelicula.cs</DependentUpon>
