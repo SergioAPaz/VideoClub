@@ -22,13 +22,13 @@ namespace MaxVideoClub.Clases
         {
             try
             {
-                conexion = new SqlConnection("Data Source=.;Initial Catalog=videoclub_db1;Integrated Security=True");
+                conexion = new SqlConnection("Data Source=CONEXIONHPACER;Initial Catalog=videoclub_db1;Integrated Security=True");
                 conexion.Open();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Base de datos no disponible, error en la conexion." + ex.ToString());
-                throw;
+                MessageBox.Show("Base de datos no disponib888le, error en la conexion." + ex.ToString());
+               
             }
         }
 

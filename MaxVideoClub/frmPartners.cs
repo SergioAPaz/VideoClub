@@ -229,11 +229,13 @@ namespace MaxVideoClub
             else if (dgvParthers.CurrentCell.ColumnIndex == 1)
             {
                 int columnI4ndex = 2; //Columna de NumDeCliente para consultar registro
-                String TituloValue = dgvParthers[columnI4ndex, dgvParthers.CurrentCell.RowIndex].Value.ToString();
-                int NumIDValue = Convert.ToInt32(TituloValue);
-                c.DeleteRegistry(NumIDValue);
+                String NumDeCliente = dgvParthers[columnI4ndex, dgvParthers.CurrentCell.RowIndex].Value.ToString();
+                int NumIDValue = Convert.ToInt32(NumDeCliente);
+                Cclients.DeleteRegistry(NumIDValue);
 
             }
         }
+
+
     }
 }

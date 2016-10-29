@@ -12,6 +12,7 @@ namespace MaxVideoClub.Clases
 {
     class Clientes
     {
+       
         public static SqlConnection conexion;
         Clases.Conexion c = new Clases.Conexion();
         SqlCommand sentencia;
@@ -23,12 +24,12 @@ namespace MaxVideoClub.Clases
         {
             try
             {
-                conexion = new SqlConnection("Data Source=.;Initial Catalog=videoclub_db1;Integrated Security=True");
+                conexion = new SqlConnection("Data Source=CONEXIONHPACER;Initial Catalog=videoclub_db1;Integrated Security=True");
                 conexion.Open();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Base de datos no disponible, error en la conexion." + ex.ToString());
+                MessageBox.Show("Base de datos no disponib777777le, error en la conexion." + ex.ToString());
                 throw;
             }
         }
@@ -105,7 +106,7 @@ namespace MaxVideoClub.Clases
             return contador;
         }
 
-        //CONSULTA ID EN BASE AL TITULO DEL REGISTRO para mandar a frmModificarPelicula
+        //CONSULTA ID EN BASE AL NumDeCliente DEL REGISTRO para mandar a frmModificarParther
         public void consultaID(int NumDeCliente)
         {
             sentencia = new SqlCommand("select id,Nombre,Apellido,Edad,Telefono,Email,Folio_IFE from clientes where NumDeCliente=" + NumDeCliente + "  ", conexion);
@@ -137,6 +138,53 @@ namespace MaxVideoClub.Clases
             frmModificarParther.ShowDialog();
 
         }
+
+
+
+        //Metodo para Editar peliculas
+        public string actualizar(string Nombre, string Apellido, int Edad, string Mail, int Ife,int Telefono, int NumDeCliente)
+        {
+            string salida = "Registro actualizado con exito.";
+            String fecha1 = DateTime.Now.ToString("dd-MM-yyyy");
+
+            try
+            {
+               
+
+                sentencia = new SqlCommand("UPDATE clientes SET Nombre='" + Nombre + "', Apellido='" + Apellido + "',Edad=" + Edad + ",Email='" + Mail + "',Folio_IFE=" + Ife + ",Telefono="+ Telefono + " WHERE NumDeCliente=" + NumDeCliente + "  ", conexion);
+
+                sentencia.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                salida = ("Error al editar registro.  " + ex.ToString());
+
+
+            }
+            return salida;
+        }
+        //BORRAR REGISTRO DE DB
+        public void DeleteRegistry(int NumDeClientes)
+        {
+            try
+            {
+                sentencia = new SqlCommand("DELETE FROM clientes WHERE NumDeCliente=" + NumDeClientes + "  ", conexion);
+
+                sentencia.ExecuteNonQuery();
+
+                MessageBox.Show("Registro eliminado con exito");
+               
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Problemas al eliminar registro" + ex.ToString());
+            }
+
+        }
+
     }
-    
+
 }
