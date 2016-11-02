@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="Clases\Clientes.cs" />
     <Compile Include="Clases\Conexion.cs" />
+    <Compile Include="Clases\Prestamos.cs" />
     <Compile Include="fmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,11 +70,11 @@
     <Compile Include="frmModificarParther.Designer.cs">
       <DependentUpon>frmModificarParther.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNewRent.cs">
+    <Compile Include="frmRenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNewRent.Designer.cs">
-      <DependentUpon>frmNewRent.cs</DependentUpon>
+    <Compile Include="frmRenta.Designer.cs">
+      <DependentUpon>frmRenta.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAdminsAccounts.cs">
       <SubType>Form</SubType>
@@ -122,8 +123,8 @@
     <EmbeddedResource Include="frmModificarPelicula.resx">
       <DependentUpon>frmModificarPelicula.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNewRent.resx">
-      <DependentUpon>frmNewRent.cs</DependentUpon>
+    <EmbeddedResource Include="frmRenta.resx">
+      <DependentUpon>frmRenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPartners.resx">
       <DependentUpon>frmPartners.cs</DependentUpon>

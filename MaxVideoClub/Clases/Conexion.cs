@@ -38,20 +38,18 @@ namespace MaxVideoClub.Clases
             string salida = "Guardado con exito.";
             int disponibles;
             int en_renta;
-
-            Random AleatoryNumber = new Random(DateTime.Now.Millisecond);
+            
            
             try
             {
                 disponibles = existencias;
                 en_renta = existencias - disponibles;
                 
-                for (int i = 0; i < existencias; i++)
-                {
-                    sentencia = new SqlCommand("insert into peliculas(Titulo,Anio,Genero,Existencias,Fecha_de_ingreso,Disponibles,En_renta,NumID) values('" + titulo + "'," + anio + ",'" + genero + "'," + existencias + ",'" + fecha + "'," + disponibles + "," + en_renta + "," + AleatoryNumber.Next() + ")", conexion);
+               
+                    sentencia = new SqlCommand("insert into peliculas(Titulo,Anio,Genero,Existencias,Fecha_de_ingreso,Disponibles,En_renta) values('" + titulo + "'," + anio + ",'" + genero + "'," + existencias + ",'" + fecha + "'," + disponibles + "," + en_renta + ")", conexion);
 
                     sentencia.ExecuteNonQuery();
-                }
+                
              
             }
             catch (Exception ex)
@@ -90,10 +88,11 @@ namespace MaxVideoClub.Clases
         {
             try
             {
-                SqlDataAdapter = new SqlDataAdapter("Select NumID,Titulo,Anio,Genero,Existencias,En_renta,Disponibles,Fecha_de_ingreso from peliculas", Properties.Settings.Default.Conexion);
+                SqlDataAdapter = new SqlDataAdapter("Select Titulo,Anio,Genero,Existencias,En_renta,Disponibles,Fecha_de_ingreso from peliculas", Properties.Settings.Default.Conexion);
                 DataTable = new DataTable();
                 SqlDataAdapter.Fill(DataTable);
                 dgv.DataSource = DataTable;
+                
 
             }
             catch (Exception ex)
@@ -105,9 +104,9 @@ namespace MaxVideoClub.Clases
 
 
         //CONSULTA ID EN BASE AL TITULO DEL REGISTRO para mandar a frmModificarPelicula
-        public void consultaID(int NumID)
+        public void consultaID(string Titulo)
         {
-            sentencia = new SqlCommand("select id,Titulo,Anio,Genero,Existencias from peliculas where NumID=" + NumID + "  ", conexion);
+            sentencia = new SqlCommand("select id,Titulo,Anio,Genero,Existencias from peliculas where Titulo='" + Titulo + "'  ", conexion);
             reader = sentencia.ExecuteReader();
             String idValue = "";
             String TituloValue = "";
@@ -126,7 +125,7 @@ namespace MaxVideoClub.Clases
             }
             reader.Close();
 
-            frmModificarPelicula frmModificarPelicula1 = new frmModificarPelicula(idValue,TituloValue, AnioValue, GeneroValue, ExistenciasValue,NumID);
+            frmModificarPelicula frmModificarPelicula1 = new frmModificarPelicula(idValue,TituloValue, AnioValue, GeneroValue, ExistenciasValue);
 
             frmModificarPelicula1.ShowDialog();
             
@@ -139,7 +138,9 @@ namespace MaxVideoClub.Clases
         {
             string salida = "Registro actualizado con exito.";
             String fecha1 = DateTime.Now.ToString("dd-MM-yyyy");
-           
+
+            
+
             try
             {
                 int disponibles = existencias;
@@ -159,16 +160,30 @@ namespace MaxVideoClub.Clases
             return salida;
         }
 
-        public void DeleteRegistry(int NumIDValue)
+        public void DeleteRegistry(string Titulo, DataGridView dgv)
         {   
             try
             {
-                sentencia = new SqlCommand("DELETE FROM peliculas WHERE NumID="+ NumIDValue + "  ", conexion);
+                sentencia = new SqlCommand("DELETE FROM peliculas WHERE Titulo='"+ Titulo + "'  ", conexion);
                 
                 sentencia.ExecuteNonQuery();
                 
                 MessageBox.Show("Registro eliminado con exito");
 
+                //METODO PARA RECARGAR DGV
+                try
+                {
+                    SqlDataAdapter = new SqlDataAdapter("Select Titulo,Anio,Genero,Existencias,En_renta,Disponibles,Fecha_de_ingreso from peliculas", Properties.Settings.Default.Conexion);
+                    DataTable = new DataTable();
+                    SqlDataAdapter.Fill(DataTable);
+                    dgv.DataSource = DataTable;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Imposible llenar tabla con el contenido" + ex.ToString());
+                    throw;
+                }
             }
             catch (Exception ex)
             {

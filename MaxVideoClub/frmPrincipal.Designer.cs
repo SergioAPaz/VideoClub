@@ -96,7 +96,6 @@
             // 
             // button2
             // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(162, 5);
@@ -108,6 +107,7 @@
             this.button2.UseCompatibleTextRendering = true;
             this.button2.UseMnemonic = false;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -198,7 +198,7 @@
             this.RightToLeftLayout = true;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "2e";
+            this.Text = "MaxVideoClub";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

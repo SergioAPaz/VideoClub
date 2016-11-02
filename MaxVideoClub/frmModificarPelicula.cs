@@ -21,19 +21,18 @@ namespace MaxVideoClub
         
 
         //METODO QUE RECIBE EL VALOR DEL ID y demas
-        public frmModificarPelicula(string id, string Titulo, string Anio, string Genero, string Existencias,int NumID)
+        public  frmModificarPelicula(string id, string Titulo, string Anio, string Genero, string Existencias)
         {
 
             InitializeComponent();
-            String NumIDtxt =Convert.ToString(NumID);
-            txtNumID.Text = NumIDtxt;
+        
             txtId.Text = id;
             txtTitulo.Text = Titulo;
             txtAnio.Text = Anio;
             txtGenero.Text = Genero;
             txtExistencias.Text = Existencias;
         
-            
+           
         }
         
 
@@ -68,7 +67,7 @@ namespace MaxVideoClub
                     
                     try
                     {
-                        MessageBox.Show(c.actualizar(txtId.Text,txtTitulo.Text, Convert.ToInt32(txtAnio.Text), txtGenero.Text, Convert.ToInt32(txtExistencias.Text)  ));
+                        MessageBox.Show(c.actualizar( txtId.Text,txtTitulo.Text, Convert.ToInt32(txtAnio.Text), txtGenero.Text, Convert.ToInt32(txtExistencias.Text)  ));
 
                         this.Close();
          

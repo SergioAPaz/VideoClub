@@ -173,17 +173,17 @@ namespace MaxVideoClub
             if (dgvPeliculas.CurrentCell.ColumnIndex == 0)
             {
                
-                int columnI4ndex = 2; //Columna de NumID para consultar registro
-                String someString = dgvPeliculas[columnI4ndex, dgvPeliculas.CurrentCell.RowIndex].Value.ToString();
-                int NumIDValue = Convert.ToInt32(someString);
-                c.consultaID(NumIDValue);
+                int columnI4ndex = 2; //Columna de Titulo para consultar registro
+                String TituloValue = dgvPeliculas[columnI4ndex, dgvPeliculas.CurrentCell.RowIndex].Value.ToString();
+                
+                c.consultaID(TituloValue);
             }
             else if (dgvPeliculas.CurrentCell.ColumnIndex == 1)
             {
-                int columnI4ndex = 2; //Columna de NumID para consultar registro
+                int columnI4ndex = 2; //Columna de Titulo para consultar registro
                 String TituloValue = dgvPeliculas[columnI4ndex, dgvPeliculas.CurrentCell.RowIndex].Value.ToString();
-                int NumIDValue = Convert.ToInt32(TituloValue);
-                c.DeleteRegistry(NumIDValue);
+               
+                c.DeleteRegistry(TituloValue, dgvPeliculas);
                 
             }
         }
@@ -208,6 +208,11 @@ namespace MaxVideoClub
 
             // Draw row number
             e.Graphics.DrawString(rowNumber, dg.Font, b, e.RowBounds.Location.X + 15, e.RowBounds.Location.Y + ((e.RowBounds.Height - size.Height) / 2));
+        }
+
+        private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

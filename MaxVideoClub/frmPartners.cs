@@ -232,6 +232,7 @@ namespace MaxVideoClub
                 String NumDeCliente = dgvParthers[columnI4ndex, dgvParthers.CurrentCell.RowIndex].Value.ToString();
                 int NumIDValue = Convert.ToInt32(NumDeCliente);
                 Cclients.DeleteRegistry(NumIDValue);
+                Cclients.CargarClientes(dgvParthers);
 
             }
         }

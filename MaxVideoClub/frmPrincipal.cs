@@ -16,6 +16,7 @@ namespace MaxVideoClub
         frmAdminsAccounts frmAdminsAccounts = new frmAdminsAccounts();
         frmPartners frmPartners = new frmPartners();
         frmPeliculas frmPeliculas = new frmPeliculas();
+        frmRenta frmRenta = new frmRenta();
 
         public frmPrincipal()
         {
@@ -39,23 +40,22 @@ namespace MaxVideoClub
 
         private void button5_Click(object sender, EventArgs e)
         {
-           
             frmAdminsAccounts.ShowDialog();
-           
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-          
             frmPeliculas.ShowDialog();
-        
-           
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
             frmPartners.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmRenta.ShowDialog();
         }
     }
 }

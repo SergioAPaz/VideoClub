@@ -29,7 +29,7 @@ namespace MaxVideoClub.Clases
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Base de datos no disponib777777le, error en la conexion." + ex.ToString());
+                MessageBox.Show("Base de datos no disponible, error en la conexion." + ex.ToString());
                 throw;
             }
         }
