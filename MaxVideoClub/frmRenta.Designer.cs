@@ -32,6 +32,8 @@
             this.txtNumDeCliente = new System.Windows.Forms.TextBox();
             this.dgvPeliculas = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.stripName = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,14 +47,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtFechaEntrega = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbPelicula = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnEfectuar = new System.Windows.Forms.Button();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.stripName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.cmbPelicula = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeliculas)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -115,6 +115,20 @@
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 16;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(58, 20);
+            this.toolStripStatusLabel1.Text = "Cliente:";
+            // 
+            // stripName
+            // 
+            this.stripName.ForeColor = System.Drawing.Color.White;
+            this.stripName.Name = "stripName";
+            this.stripName.Size = new System.Drawing.Size(66, 20);
+            this.stripName.Text = "Ninguno";
             // 
             // toolStrip1
             // 
@@ -180,13 +194,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cmbPelicula);
             this.groupBox2.Controls.Add(this.txtExistencias);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.dtpDevolucion);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtFechaEntrega);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.cmbPelicula);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(351, 27);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -220,9 +234,12 @@
             this.dtpDevolucion.Enabled = false;
             this.dtpDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDevolucion.Location = new System.Drawing.Point(484, 60);
+            this.dtpDevolucion.MinDate = new System.DateTime(2016, 10, 5, 0, 0, 0, 0);
             this.dtpDevolucion.Name = "dtpDevolucion";
             this.dtpDevolucion.Size = new System.Drawing.Size(116, 22);
             this.dtpDevolucion.TabIndex = 5;
+            this.dtpDevolucion.Value = new System.DateTime(2016, 12, 25, 23, 59, 59, 0);
+            this.dtpDevolucion.ValueChanged += new System.EventHandler(this.dtpDevolucion_ValueChanged);
             // 
             // label3
             // 
@@ -250,17 +267,6 @@
             this.label2.Size = new System.Drawing.Size(124, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Fecha de entrega:";
-            // 
-            // cmbPelicula
-            // 
-            this.cmbPelicula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPelicula.Enabled = false;
-            this.cmbPelicula.FormattingEnabled = true;
-            this.cmbPelicula.Location = new System.Drawing.Point(88, 21);
-            this.cmbPelicula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbPelicula.Name = "cmbPelicula";
-            this.cmbPelicula.Size = new System.Drawing.Size(215, 24);
-            this.cmbPelicula.TabIndex = 1;
             // 
             // label1
             // 
@@ -324,19 +330,13 @@
             this.btnEfectuar.UseVisualStyleBackColor = true;
             this.btnEfectuar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // toolStripStatusLabel1
+            // cmbPelicula
             // 
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(58, 20);
-            this.toolStripStatusLabel1.Text = "Cliente:";
-            // 
-            // stripName
-            // 
-            this.stripName.ForeColor = System.Drawing.Color.White;
-            this.stripName.Name = "stripName";
-            this.stripName.Size = new System.Drawing.Size(66, 20);
-            this.stripName.Text = "Ninguno";
+            this.cmbPelicula.Location = new System.Drawing.Point(88, 22);
+            this.cmbPelicula.Name = "cmbPelicula";
+            this.cmbPelicula.ReadOnly = true;
+            this.cmbPelicula.Size = new System.Drawing.Size(215, 22);
+            this.cmbPelicula.TabIndex = 8;
             // 
             // frmRenta
             // 
@@ -388,7 +388,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox cmbPelicula;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtExistencias;
         private System.Windows.Forms.Label label5;
@@ -402,5 +401,6 @@
         private System.Windows.Forms.Button btnEfectuar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel stripName;
+        private System.Windows.Forms.TextBox cmbPelicula;
     }
 }

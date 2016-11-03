@@ -56,15 +56,7 @@ namespace MaxVideoClub
             String fecha = DateTime.Now.ToString("dd-MM-yyyy");
             txtFechaEntrega.Text = fecha;
 
-            //Fill COMBOBOX CON TITULOS EXISTENTES
-            SqlCommand sentencia = new SqlCommand("SELECT Titulo FROM peliculas", conexion1);
-            reader = sentencia.ExecuteReader();
-            cmbPelicula.Items.Clear();              
-            while (reader.Read())
-            {
-                cmbPelicula.Items.Add(reader["Titulo"].ToString());
-            }
-            reader.Close();
+          
 
         }
 
@@ -141,7 +133,7 @@ namespace MaxVideoClub
 
             cmbPelicula.Text = TituloValue;
 
-
+            btnEfectuar.Enabled = true;
         }
 
         private void pintar(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -163,11 +155,26 @@ namespace MaxVideoClub
             // Draw row number
             e.Graphics.DrawString(rowNumber, dg.Font, b, e.RowBounds.Location.X + 15, e.RowBounds.Location.Y + ((e.RowBounds.Height - size.Height) / 2));
         }
-
+        //BOTON GUARDAR EN DB
         private void button2_Click(object sender, EventArgs e)
         {
-           
-         
+          
+            DateTimePicker dtp = sender as DateTimePicker;
+            DateTime today = DateTime.Today.Date;
+            if ( (dtpDevolucion.Value < today) || (dtpDevolucion.Text==txtFechaEntrega.Text) )
+            {
+                MessageBox.Show("Favor de incluir una fecha posterior al dia de hoy");
+              
+            }
+            else
+            {
+
+                p.insertar(txtNumDeCliente.Text, cmbPelicula.Text, txtFechaEntrega.Text, dtpDevolucion.Text);
+              
+            }
+
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -175,6 +182,7 @@ namespace MaxVideoClub
             
         }
 
+        //FUNCION PARA VALIDAR QUE EL NUMERO DE CLIENTE INTRODUCIDO EN FRM SEA EXISTENTE
         private void button1_Click(object sender, EventArgs e)
         {
             Regex validar2 = new Regex(@"^[0-9]+$"); /*Solo numeros*/
@@ -221,6 +229,11 @@ namespace MaxVideoClub
             txtFiltro.Enabled = false;
             cmbFiltro.Enabled = false;
             dgvPeliculas.Enabled = false;
+        }
+
+        private void dtpDevolucion_ValueChanged(object sender, EventArgs e)
+        {
+
         }
 
         //Funcion numeradora de rows en DataGridView
