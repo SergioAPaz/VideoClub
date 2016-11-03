@@ -11,6 +11,7 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 
 namespace MaxVideoClub
@@ -51,6 +52,9 @@ namespace MaxVideoClub
             c.CargarPeliculas(dgvPeliculas);
             txtFiltro.GotFocus += new EventHandler(this.TextGotFocus);
             txtFiltro.LostFocus += new EventHandler(this.TextLostFocus);
+
+            String fecha = DateTime.Now.ToString("dd-MM-yyyy");
+            txtFechaEntrega.Text = fecha;
 
             //Fill COMBOBOX CON TITULOS EXISTENTES
             SqlCommand sentencia = new SqlCommand("SELECT Titulo FROM peliculas", conexion1);
@@ -135,8 +139,8 @@ namespace MaxVideoClub
             txtExistencias.Text = Convert.ToString(Existencias1);
 
 
+            cmbPelicula.Text = TituloValue;
 
-           
 
         }
 
@@ -160,9 +164,64 @@ namespace MaxVideoClub
             e.Graphics.DrawString(rowNumber, dg.Font, b, e.RowBounds.Location.X + 15, e.RowBounds.Location.Y + ((e.RowBounds.Height - size.Height) / 2));
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+         
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Regex validar2 = new Regex(@"^[0-9]+$"); /*Solo numeros*/
+         
+            if (validar2.IsMatch(txtNumDeCliente.Text))
+            {
+                if (p.ConsultaClienteExistente(txtNumDeCliente.Text) ==true)
+                {
+                    cmbPelicula.Enabled = true;
+                    txtExistencias.Enabled = true;
+                    txtFechaEntrega.Enabled = true;
+                    dtpDevolucion.Enabled = true;
+                    txtFiltro.Enabled = true;
+                    cmbFiltro.Enabled = true;
+                    dgvPeliculas.Enabled = true;
+
+                    stripName.Text = p.ConsultaClienteNombreApellido(txtNumDeCliente.Text);
 
 
 
+                }
+                else
+                {
+                    MessageBox.Show("El cliente no existe");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Favor de ingresar un numero de cliente valido.");
+            }
+
+        }
+
+        private void AlCerrar(object sender, FormClosedEventArgs e)
+        {
+
+            txtNumDeCliente.Text = "";
+            txtFiltro.Text = "";
+            txtExistencias.Text = "";
+            cmbPelicula.Enabled = false;
+            txtExistencias.Enabled = false;
+            txtFechaEntrega.Enabled = false;
+            dtpDevolucion.Enabled = false;
+            txtFiltro.Enabled = false;
+            cmbFiltro.Enabled = false;
+            dgvPeliculas.Enabled = false;
+        }
 
         //Funcion numeradora de rows en DataGridView
 

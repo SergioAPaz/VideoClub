@@ -250,6 +250,7 @@
             this.dgvParthers.AllowUserToDeleteRows = false;
             this.dgvParthers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvParthers.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvParthers.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dgvParthers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvParthers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EditColumn,

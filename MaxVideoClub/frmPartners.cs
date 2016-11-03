@@ -79,9 +79,9 @@ namespace MaxVideoClub
                             txtNombre.Text, 
                             txtApellido.Text,  
                             Convert.ToInt32(txtEdad.Text),
-                            Convert.ToInt32(txtTelefono.Text),
+                            txtTelefono.Text,
                             txtEmail.Text,
-                            Convert.ToInt32(txtIfe.Text) )
+                            txtIfe.Text )
                             );
 
                         Cclients.CargarClientes(dgvParthers);
@@ -91,6 +91,7 @@ namespace MaxVideoClub
                         txtEdad.Text = "";
                         txtTelefono.Text = "";
                         txtEmail.Text = "";
+                        txtIfe.Text = "";
                     }
                     else
                     {

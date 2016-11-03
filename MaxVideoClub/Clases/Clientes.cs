@@ -54,7 +54,7 @@ namespace MaxVideoClub.Clases
         
 
         //GUARDAR CIENTES EN DB
-        public string insertar(string Nombre,string Apellido, int Edad,int Telefono,string Email, int Ife)
+        public string insertar(string Nombre,string Apellido, int Edad,string Telefono,string Email, string Ife)
         {
             string salida = "Guardado con exito.";
             
@@ -62,12 +62,12 @@ namespace MaxVideoClub.Clases
 
             String fecha = DateTime.Now.ToString("dd-MM-yyyy");
 
-            Random AleatoryNumber = new Random(DateTime.Now.Millisecond);
+            Random AleatoryNumber = new Random(DateTime.Now.Minute);
 
             try
             {
               
-                    sentencia = new SqlCommand("insert into clientes(Nombre,Apellido,Edad,NumDeCliente,Telefono,Email,En_renta,Fecha_Alta,Folio_IFE) values('" + Nombre + "','" + Apellido + "'," + Edad + "," + AleatoryNumber.Next() + "," + Telefono + ",'" + Email + "'," + en_renta + ",'" + fecha + "',"+Ife+")", conexion);
+                    sentencia = new SqlCommand("insert into clientes(Nombre,Apellido,Edad,NumDeCliente,Telefono,Email,En_renta,Fecha_Alta,Folio_IFE) values('" + Nombre + "','" + Apellido + "'," + Edad + "," + AleatoryNumber.Next() + ",'" + Telefono + "','" + Email + "'," + en_renta + ",'" + fecha + "','"+Ife+"')", conexion);
 
                     sentencia.ExecuteNonQuery();
                 

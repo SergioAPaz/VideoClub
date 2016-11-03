@@ -57,6 +57,64 @@ namespace MaxVideoClub.Clases
             return Existencias;
         }
 
-       
+
+
+
+        //CONSULTA DE NumDeCliente para habilitar frmRentas
+        public Boolean ConsultaClienteExistente(string NumDeCliente)
+        {
+           
+            Boolean Cliente=false;
+            try
+            {
+                sentencia = new SqlCommand("SELECT * FROM clientes WHERE NumDeCliente=" + NumDeCliente + " ", conexion);
+
+                reader = sentencia.ExecuteReader();
+                
+                while (reader.Read())
+                {
+                    Cliente = true;
+                    MessageBox.Show("Cliente encontrado: " + (String.Format("{0}", reader["Nombre"]))+ " "+(String.Format("{0}", reader["Apellido"])));
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problemas al consultar cliente" + ex.ToString());
+            }
+           
+
+            return Cliente;
+        }
+        //CONSULTA DE nombrede lciente para statusstrip frmRentas
+        public string ConsultaClienteNombreApellido(string NumDeCliente)
+        {
+
+            String NameyLast = "Ningunos";
+            try
+            {
+                sentencia = new SqlCommand("SELECT Nombre,Apellido FROM clientes WHERE NumDeCliente=" + NumDeCliente + " ", conexion);
+
+                reader = sentencia.ExecuteReader();
+                
+                while (reader.Read())
+                {
+
+                    NameyLast = ( (String.Format("{0}", reader["Nombre"]))+" "+(String.Format("{0}", reader["Apellido"])) );
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problemas al consultar Nombre y apellido." + ex.ToString());
+            }
+
+
+            return NameyLast;
+        }
+
+
     }
 }
