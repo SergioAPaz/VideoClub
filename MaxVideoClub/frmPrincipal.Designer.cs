@@ -40,6 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -141,6 +142,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button3);
@@ -179,6 +181,21 @@
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(162, 75);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(150, 64);
+            this.button6.TabIndex = 18;
+            this.button6.Text = "Rentas Actuales";
+            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button6.UseCompatibleTextRendering = true;
+            this.button6.UseMnemonic = false;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // frmPrincipal
             // 
@@ -220,5 +237,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         protected System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button6;
     }
 }

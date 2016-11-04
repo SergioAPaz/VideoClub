@@ -133,6 +133,7 @@ namespace MaxVideoClub
 
         }
 
+        //FUNCION DE CAMBIAR TEXTO DE "buscar" EN TXTBUSCAR A VACIO
         public void TextGotFocus(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;

@@ -18,14 +18,19 @@ namespace MaxVideoClub
         Regex validar = new Regex(@"^[a-zA-Z0-9._ñÑáéíóúÁÉÍÓÚ ]+$"); /*Solo texto y numeros y _*/
         Regex validar2 = new Regex(@"^[0-9]+$"); /*Solo numeros*/
 
-        
+        string TituloOriginal
+        {
+            get; set;
+        }
+
 
         //METODO QUE RECIBE EL VALOR DEL ID y demas
-        public  frmModificarPelicula(string id, string Titulo, string Anio, string Genero, string Existencias)
+        public frmModificarPelicula(string id, string Titulo, string Anio, string Genero, string Existencias)
         {
-
+            TituloOriginal = Titulo;//Guardamos el titulo original antes de cualquier modificacion para comparar si ya esta en renta dicha pelicula y si es true no permitir la modificacion de la pelicula excepto las existencias.
+           
             InitializeComponent();
-        
+            
             txtId.Text = id;
             txtTitulo.Text = Titulo;
             txtAnio.Text = Anio;
@@ -58,6 +63,7 @@ namespace MaxVideoClub
         //BOTON GUARDAR PARA EDITAR
         private void button1_Click(object sender, EventArgs e)
         {
+           
             Boolean vRec = EspaciosVacios();
             String fecha = DateTime.Now.ToString("dd-MM-yyyy");
             if (vRec == false)
@@ -67,7 +73,7 @@ namespace MaxVideoClub
                     
                     try
                     {
-                        MessageBox.Show(c.actualizar( txtId.Text,txtTitulo.Text, Convert.ToInt32(txtAnio.Text), txtGenero.Text, Convert.ToInt32(txtExistencias.Text)  ));
+                        c.actualizar( TituloOriginal,Convert.ToInt32(txtId.Text),txtTitulo.Text, Convert.ToInt32(txtAnio.Text), txtGenero.Text, Convert.ToInt32(txtExistencias.Text)  );
 
                         this.Close();
          

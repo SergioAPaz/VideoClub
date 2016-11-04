@@ -27,3 +27,5 @@ F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmPartners.resources
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmModificarParther.resources
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmRenta.resources
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmRentasActuales.resources
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.Devoluciones.resources

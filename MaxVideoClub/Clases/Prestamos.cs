@@ -179,12 +179,8 @@ namespace MaxVideoClub.Clases
                     int Restantes = DisponiblesINT - 1;
                     int EnRenta3 = EnRenta2 + 1;
                     SentenciaDescontar = new SqlCommand("UPDATE peliculas SET Disponibles=" + Restantes + ", En_renta="+EnRenta3+" WHERE Titulo='" + Titulo + "'  ", conexion);
-
                     SentenciaDescontar.ExecuteNonQuery();
-
-
-
-
+                    
                     MessageBox.Show("Renta realizada con exito.");
 
                 }

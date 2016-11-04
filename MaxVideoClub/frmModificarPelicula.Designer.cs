@@ -42,8 +42,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.txtNumID = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +49,7 @@
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 195);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 156);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
             this.statusStrip1.Size = new System.Drawing.Size(567, 22);
@@ -82,7 +80,7 @@
             // 
             // txtExistencias
             // 
-            this.txtExistencias.Location = new System.Drawing.Point(360, 70);
+            this.txtExistencias.Location = new System.Drawing.Point(360, 36);
             this.txtExistencias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtExistencias.Name = "txtExistencias";
             this.txtExistencias.Size = new System.Drawing.Size(184, 22);
@@ -91,7 +89,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 107);
+            this.label5.Location = new System.Drawing.Point(23, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 17);
             this.label5.TabIndex = 13;
@@ -100,7 +98,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(276, 115);
+            this.label4.Location = new System.Drawing.Point(276, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 17);
             this.label4.TabIndex = 12;
@@ -109,7 +107,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(275, 73);
+            this.label3.Location = new System.Drawing.Point(275, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 17);
             this.label3.TabIndex = 10;
@@ -118,7 +116,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 75);
+            this.label1.Location = new System.Drawing.Point(23, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 7;
@@ -126,7 +124,7 @@
             // 
             // txtGenero
             // 
-            this.txtGenero.Location = new System.Drawing.Point(360, 107);
+            this.txtGenero.Location = new System.Drawing.Point(360, 73);
             this.txtGenero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtGenero.Name = "txtGenero";
             this.txtGenero.Size = new System.Drawing.Size(184, 22);
@@ -134,7 +132,7 @@
             // 
             // txtTitulo
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(76, 70);
+            this.txtTitulo.Location = new System.Drawing.Point(76, 36);
             this.txtTitulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(184, 22);
@@ -142,7 +140,7 @@
             // 
             // txtAnio
             // 
-            this.txtAnio.Location = new System.Drawing.Point(76, 107);
+            this.txtAnio.Location = new System.Drawing.Point(76, 73);
             this.txtAnio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.Size = new System.Drawing.Size(184, 22);
@@ -150,7 +148,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(432, 146);
+            this.btnGuardar.Location = new System.Drawing.Point(432, 112);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(112, 34);
@@ -161,7 +159,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(315, 146);
+            this.button2.Location = new System.Drawing.Point(315, 112);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 34);
@@ -172,36 +170,18 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(166, 151);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtId.Location = new System.Drawing.Point(166, 117);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(49, 22);
             this.txtId.TabIndex = 17;
             this.txtId.Visible = false;
             // 
-            // txtNumID
-            // 
-            this.txtNumID.Location = new System.Drawing.Point(77, 34);
-            this.txtNumID.Name = "txtNumID";
-            this.txtNumID.ReadOnly = true;
-            this.txtNumID.Size = new System.Drawing.Size(119, 22);
-            this.txtNumID.TabIndex = 18;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 17);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "NumID:";
-            // 
             // frmModificarPelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 217);
-            this.Controls.Add(this.txtNumID);
+            this.ClientSize = new System.Drawing.Size(567, 178);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnGuardar);
@@ -215,7 +195,6 @@
             this.Controls.Add(this.txtAnio);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
@@ -247,7 +226,5 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.TextBox txtNumID;
-        private System.Windows.Forms.Label label2;
     }
 }
