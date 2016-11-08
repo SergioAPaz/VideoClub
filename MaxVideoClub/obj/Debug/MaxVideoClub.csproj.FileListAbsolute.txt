@@ -28,4 +28,3 @@ F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.csproj.GenerateResource.Cache
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.exe
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.pdb
-F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.csprojResolveAssemblyReference.cache

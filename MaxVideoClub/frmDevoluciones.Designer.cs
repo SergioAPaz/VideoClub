@@ -29,19 +29,24 @@
         private void InitializeComponent()
         {
             this.btnEfectuar = new System.Windows.Forms.Button();
-            this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.cmbPelicula = new System.Windows.Forms.TextBox();
-            this.txtExistencias = new System.Windows.Forms.TextBox();
+            this.txtFechaDevolucion = new System.Windows.Forms.TextBox();
+            this.txtPagar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPagar = new System.Windows.Forms.Button();
+            this.txtPelicula = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.acercaDeMaxVideoClubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtFecha = new System.Windows.Forms.ToolStripLabel();
             this.stripName = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -49,12 +54,7 @@
             this.txtNumDeCliente = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFechaEntrega = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.txtFecha = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -74,24 +74,6 @@
             this.btnEfectuar.UseVisualStyleBackColor = true;
             this.btnEfectuar.Click += new System.EventHandler(this.btnEfectuar_Click);
             // 
-            // cmbFiltro
-            // 
-            this.cmbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbFiltro.Enabled = false;
-            this.cmbFiltro.FormattingEnabled = true;
-            this.cmbFiltro.Items.AddRange(new object[] {
-            "Titulo",
-            "Año",
-            "Genero",
-            "Existencias",
-            "Disponibles",
-            "Cualquiera..."});
-            this.cmbFiltro.Location = new System.Drawing.Point(90, 138);
-            this.cmbFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbFiltro.Name = "cmbFiltro";
-            this.cmbFiltro.Size = new System.Drawing.Size(121, 24);
-            this.cmbFiltro.TabIndex = 24;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -102,22 +84,22 @@
             this.label8.TabIndex = 23;
             this.label8.Text = "Buscar por:";
             // 
-            // cmbPelicula
+            // txtFechaDevolucion
             // 
-            this.cmbPelicula.Location = new System.Drawing.Point(154, 22);
-            this.cmbPelicula.Name = "cmbPelicula";
-            this.cmbPelicula.ReadOnly = true;
-            this.cmbPelicula.Size = new System.Drawing.Size(149, 22);
-            this.cmbPelicula.TabIndex = 8;
+            this.txtFechaDevolucion.Location = new System.Drawing.Point(159, 60);
+            this.txtFechaDevolucion.Name = "txtFechaDevolucion";
+            this.txtFechaDevolucion.ReadOnly = true;
+            this.txtFechaDevolucion.Size = new System.Drawing.Size(133, 22);
+            this.txtFechaDevolucion.TabIndex = 8;
             // 
-            // txtExistencias
+            // txtPagar
             // 
-            this.txtExistencias.Enabled = false;
-            this.txtExistencias.Location = new System.Drawing.Point(484, 22);
-            this.txtExistencias.Name = "txtExistencias";
-            this.txtExistencias.ReadOnly = true;
-            this.txtExistencias.Size = new System.Drawing.Size(116, 22);
-            this.txtExistencias.TabIndex = 7;
+            this.txtPagar.Enabled = false;
+            this.txtPagar.Location = new System.Drawing.Point(484, 22);
+            this.txtPagar.Name = "txtPagar";
+            this.txtPagar.ReadOnly = true;
+            this.txtPagar.Size = new System.Drawing.Size(116, 22);
+            this.txtPagar.TabIndex = 7;
             // 
             // label5
             // 
@@ -131,19 +113,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 24);
+            this.label1.Location = new System.Drawing.Point(10, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 17);
+            this.label1.Size = new System.Drawing.Size(143, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Numero de cliente:";
+            this.label1.Text = "Fecha de devolucion:";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.cmbPelicula);
-            this.groupBox2.Controls.Add(this.txtExistencias);
+            this.groupBox2.Controls.Add(this.btnPagar);
+            this.groupBox2.Controls.Add(this.txtFechaDevolucion);
+            this.groupBox2.Controls.Add(this.txtPagar);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txtFechaEntrega);
+            this.groupBox2.Controls.Add(this.txtPelicula);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(351, 27);
@@ -154,17 +136,47 @@
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             // 
+            // btnPagar
+            // 
+            this.btnPagar.Enabled = false;
+            this.btnPagar.Location = new System.Drawing.Point(506, 56);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(94, 33);
+            this.btnPagar.TabIndex = 9;
+            this.btnPagar.Text = "Pagar";
+            this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
+            // 
+            // txtPelicula
+            // 
+            this.txtPelicula.Enabled = false;
+            this.txtPelicula.Location = new System.Drawing.Point(77, 20);
+            this.txtPelicula.Name = "txtPelicula";
+            this.txtPelicula.ReadOnly = true;
+            this.txtPelicula.Size = new System.Drawing.Size(215, 22);
+            this.txtPelicula.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Pelicula:";
+            // 
             // txtFiltro
             // 
             this.txtFiltro.Enabled = false;
             this.txtFiltro.ForeColor = System.Drawing.Color.LightGray;
-            this.txtFiltro.Location = new System.Drawing.Point(223, 138);
+            this.txtFiltro.Location = new System.Drawing.Point(258, 138);
             this.txtFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(279, 22);
             this.txtFiltro.TabIndex = 22;
             this.txtFiltro.Text = "Buscar...";
             this.txtFiltro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // button1
             // 
@@ -175,6 +187,7 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "Ingresar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // acercaDeMaxVideoClubToolStripMenuItem
             // 
@@ -216,6 +229,24 @@
             this.toolStrip1.Size = new System.Drawing.Size(993, 27);
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(111, 24);
+            this.txtFecha.Text = "toolStripLabel1";
+            this.txtFecha.Click += new System.EventHandler(this.txtFecha_Click);
             // 
             // stripName
             // 
@@ -266,6 +297,8 @@
             this.dgvDevoluciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDevoluciones.Size = new System.Drawing.Size(971, 301);
             this.dgvDevoluciones.TabIndex = 21;
+            this.dgvDevoluciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDevoluciones_CellContentClick);
+            this.dgvDevoluciones.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.pintar_numeros);
             // 
             // txtNumDeCliente
             // 
@@ -298,57 +331,32 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Numero de Cliente:";
             // 
-            // label2
+            // cmbFiltro
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Pelicula:";
-            // 
-            // txtFechaEntrega
-            // 
-            this.txtFechaEntrega.Enabled = false;
-            this.txtFechaEntrega.Location = new System.Drawing.Point(88, 60);
-            this.txtFechaEntrega.Name = "txtFechaEntrega";
-            this.txtFechaEntrega.ReadOnly = true;
-            this.txtFechaEntrega.Size = new System.Drawing.Size(215, 22);
-            this.txtFechaEntrega.TabIndex = 3;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(506, 56);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 33);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Pagar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(111, 24);
-            this.txtFecha.Text = "toolStripLabel1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.cmbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFiltro.Enabled = false;
+            this.cmbFiltro.FormattingEnabled = true;
+            this.cmbFiltro.Items.AddRange(new object[] {
+            "Titulo de pelicula",
+            "Numero de cliente",
+            "Nombre de cliente",
+            "Fecha de entrega",
+            "Fecha de devolucion",
+            "Multa",
+            "Cualquiera..."});
+            this.cmbFiltro.Location = new System.Drawing.Point(89, 136);
+            this.cmbFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbFiltro.Name = "cmbFiltro";
+            this.cmbFiltro.Size = new System.Drawing.Size(159, 24);
+            this.cmbFiltro.TabIndex = 30;
             // 
             // frmDevoluciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 503);
-            this.Controls.Add(this.btnEfectuar);
             this.Controls.Add(this.cmbFiltro);
+            this.Controls.Add(this.btnEfectuar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtFiltro);
@@ -358,6 +366,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmDevoluciones";
             this.Text = "Devoluciones";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDevoluciones_FormClosing);
             this.Load += new System.EventHandler(this.Devoluciones_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -376,10 +385,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnEfectuar;
-        private System.Windows.Forms.ComboBox cmbFiltro;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox cmbPelicula;
-        private System.Windows.Forms.TextBox txtExistencias;
+        private System.Windows.Forms.TextBox txtFechaDevolucion;
+        private System.Windows.Forms.TextBox txtPagar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -396,11 +404,12 @@
         private System.Windows.Forms.TextBox txtNumDeCliente;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox txtFechaEntrega;
+        private System.Windows.Forms.Button btnPagar;
+        private System.Windows.Forms.TextBox txtPelicula;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripLabel txtFecha;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ComboBox cmbFiltro;
     }
 }

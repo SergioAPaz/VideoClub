@@ -17,7 +17,13 @@ namespace MaxVideoClub.Clases
         Clases.Conexion c = new Clases.Conexion();
         SqlCommand ConsultaIDs;
         SqlDataReader RConsultaIDs;
-        SqlDataReader RConsultaIDs2;
+
+        SqlCommand CClienteExist;
+        SqlDataReader RCClienteExist;
+
+        SqlCommand CRelleno;
+        SqlDataReader RCRelleno;
+
         DataTable DataTable;
         SqlDataAdapter SqlDataAdapter;
 
@@ -39,12 +45,13 @@ namespace MaxVideoClub.Clases
                 throw;
             }
         }
-        //CARGA DE prestamos ctuales EN DGV
-        public void CargarDevoluciones(DataGridView dgv)
+        //CARGA DE prestamos actuales EN DGV
+        public void CargarDevoluciones(DataGridView dgv,string NumDeCliente)
         {
             try
             {
-                SqlDataAdapter = new SqlDataAdapter("SELECT TituloDePelicula,NumeroDeCliente,NombreDeCliente,Fecha_De_Entrega,Fecha_De_Devolucion,Multa FROM Prestamos", Properties.Settings.Default.Conexion);
+                int Cliente = Convert.ToInt32(NumDeCliente);
+                SqlDataAdapter = new SqlDataAdapter("SELECT * FROM Prestamos WHERE NumeroDeCliente="+NumDeCliente+" ", Properties.Settings.Default.Conexion);
 
                 DataTable = new DataTable();
                 SqlDataAdapter.Fill(DataTable);
@@ -57,7 +64,7 @@ namespace MaxVideoClub.Clases
                 throw;
             }
         }
-
+        //FUNCION PARA CARGAR MULTA DE $50 SI LA FECH DE DEVOLUCION ES ANTERIOR A LA FECHA ACTUAL 
         public void CargarMulta()
         {
             try
@@ -85,8 +92,13 @@ namespace MaxVideoClub.Clases
                     int CompararMulta = Convert.ToInt32(Multa);
                     if (Fdevol > hoy)
                     {
-                        //NO APLICA MULTA SIGUE ESTANDO EN PERIODO DE TOLERANCIA
-                       
+                        //NO APLICA MULTA SIGUE ESTANDO EN PERIODO DE TOLERANCIA SE REGRESA A 0 EN CASO DE QUE TENGA MULTA POR CAMBIOS EN LA FECHA DEL EQUIPO SIN PRECAUCION
+                        int y = 0;
+                        //FUNCION PARA ASIGNAR MULTA CORRESPONDIENTE
+                        SumaMulta = new SqlCommand("UPDATE Prestamos SET Multa=" + y + " WHERE id=" + Nid + "  ", conexion);
+
+                        SumaMulta.ExecuteNonQuery();
+
                     }
                     else
                     {
@@ -126,6 +138,24 @@ namespace MaxVideoClub.Clases
 
             
         }
+
+        public Boolean ConsulRentaExistente(string NumDeCliente)
+        {
+            Boolean Confirmacion=false;
+
+            CClienteExist = new SqlCommand("SELECT NumeroDeCliente FROM Prestamos WHERE NumeroDeCliente="+NumDeCliente+" ", conexion);
+            RCClienteExist = CClienteExist.ExecuteReader();
+
+            while (RCClienteExist.Read())
+            {
+                Confirmacion = true;
+            }
+            RCClienteExist.Close();
+
+            return Confirmacion;
+        }
+
+        
 
 
     }
