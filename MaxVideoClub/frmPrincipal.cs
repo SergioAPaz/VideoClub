@@ -19,10 +19,17 @@ namespace MaxVideoClub
         frmRenta frmRenta = new frmRenta();
         frmRentasActuales frmRentasActuales = new frmRentasActuales();
         frmDevoluciones frmDevoluciones = new frmDevoluciones();
-
-        public frmPrincipal()
+        frmLogin frmLogin = new frmLogin();
+        Clases.Principal CPrincipal=new Clases.Principal();
+        string USerValidation
         {
+            get; set;
+        }
+        public frmPrincipal(string User)
+        {
+            USerValidation = User;
             InitializeComponent();
+            lblUser.Text = User;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,7 +39,17 @@ namespace MaxVideoClub
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-
+            String Val = USerValidation;
+            if (CPrincipal.TipoDeUsuario(Val)==true)
+            {
+                button5.Enabled = true;
+                MessageBox.Show("Iniciando como administrador.");
+            }
+            else
+            {
+                button5.Enabled = false;
+            }
+            CPrincipal.TipoDeUsuario(Val);
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,6 +85,24 @@ namespace MaxVideoClub
         private void button1_Click_1(object sender, EventArgs e)
         {
             frmDevoluciones.ShowDialog();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            this.Controls.Clear();
+
+            this.InitializeComponent();
+            frmLogin.Show();
+        }
+
+        private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Visible = false;
+            this.Controls.Clear();
+
+            this.InitializeComponent();
+            frmLogin.Show();
         }
     }
 }

@@ -73,7 +73,7 @@ namespace MaxVideoClub
                 
         }
 
-        //Clase que valida que esten llenos todos los campos
+        //funcion que valida que esten llenos todos los campos
          public  Boolean EspaciosVacios()
         {
             Boolean rEspaciosVacios = false;
@@ -222,6 +222,11 @@ namespace MaxVideoClub
             this.Controls.Clear();
 
             this.InitializeComponent();
+
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
         }
     }
