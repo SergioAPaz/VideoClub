@@ -236,6 +236,15 @@ namespace MaxVideoClub
 
         }
 
+        private void frmRenta_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Visible = false;
+            this.Controls.Clear();
+
+            this.InitializeComponent();
+
+        }
+
         //Funcion numeradora de rows en DataGridView
 
     }

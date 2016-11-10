@@ -379,6 +379,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPartners";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPartners_FormClosing);
             this.Load += new System.EventHandler(this.frmPartners_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -215,6 +215,15 @@ namespace MaxVideoClub
         {
 
         }
+
+        private void frmPeliculas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Visible = false;
+            this.Controls.Clear();
+
+            this.InitializeComponent();
+
+        }
     }
 
 }

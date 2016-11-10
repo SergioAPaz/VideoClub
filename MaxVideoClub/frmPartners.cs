@@ -238,6 +238,13 @@ namespace MaxVideoClub
             }
         }
 
+        private void frmPartners_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Visible = false;
+            this.Controls.Clear();
 
+            this.InitializeComponent();
+
+        }
     }
 }

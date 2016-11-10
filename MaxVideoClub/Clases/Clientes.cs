@@ -17,6 +17,10 @@ namespace MaxVideoClub.Clases
         Clases.Conexion c = new Clases.Conexion();
         SqlCommand sentencia;
         SqlDataReader reader;
+
+        SqlCommand CAdeudo;
+        SqlDataReader RCAdeudo;
+
         DataTable DataTable;
         SqlDataAdapter SqlDataAdapter;
 
@@ -169,12 +173,32 @@ namespace MaxVideoClub.Clases
         {
             try
             {
-                sentencia = new SqlCommand("DELETE FROM clientes WHERE NumDeCliente=" + NumDeClientes + "  ", conexion);
+                //PRIMERO SE CONSULTA SI EL CLIENTE A ELIMINAR NO CUENTA CON UNA RENTA ACTUALMENTE
+                CAdeudo = new SqlCommand("SELECT TituloDePelicula FROM Prestamos WHERE NumeroDeCliente=" + NumDeClientes + " ", conexion);
+                RCAdeudo = CAdeudo.ExecuteReader();
+                List<string> lista = new List<string>();
+                int bandera1=0;
 
-                sentencia.ExecuteNonQuery();
+                while (RCAdeudo.Read())
+                {
+                    lista.Add(String.Format("{0}", RCAdeudo["TituloDePelicula"]));
+                    bandera1 = 1;          
+                }
+                RCAdeudo.Close();
 
-                MessageBox.Show("Registro eliminado con exito");
-               
+                if (bandera1==1)
+                {
+                    var ListElements = string.Join(Environment.NewLine, lista);
+                    MessageBox.Show("Imposible eliminar a el socio debido a que actualmente cuenta con una renta existente."+ "\n\n" + "Los titulos actualmente en renta son:"+ "\n\n"+ListElements);
+                }
+                else
+                {
+                    sentencia = new SqlCommand("DELETE FROM clientes WHERE NumDeCliente=" + NumDeClientes + "  ", conexion);
+
+                    sentencia.ExecuteNonQuery();
+
+                    MessageBox.Show("Socio eliminado con exito");
+                }
 
             }
             catch (Exception ex)

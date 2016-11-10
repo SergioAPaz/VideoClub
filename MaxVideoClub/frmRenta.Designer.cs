@@ -41,6 +41,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbPelicula = new System.Windows.Forms.TextBox();
             this.txtExistencias = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDevolucion = new System.Windows.Forms.DateTimePicker();
@@ -52,7 +53,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnEfectuar = new System.Windows.Forms.Button();
-            this.cmbPelicula = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeliculas)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -210,6 +210,14 @@
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             // 
+            // cmbPelicula
+            // 
+            this.cmbPelicula.Location = new System.Drawing.Point(88, 22);
+            this.cmbPelicula.Name = "cmbPelicula";
+            this.cmbPelicula.ReadOnly = true;
+            this.cmbPelicula.Size = new System.Drawing.Size(215, 22);
+            this.cmbPelicula.TabIndex = 8;
+            // 
             // txtExistencias
             // 
             this.txtExistencias.Enabled = false;
@@ -330,14 +338,6 @@
             this.btnEfectuar.UseVisualStyleBackColor = true;
             this.btnEfectuar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // cmbPelicula
-            // 
-            this.cmbPelicula.Location = new System.Drawing.Point(88, 22);
-            this.cmbPelicula.Name = "cmbPelicula";
-            this.cmbPelicula.ReadOnly = true;
-            this.cmbPelicula.Size = new System.Drawing.Size(215, 22);
-            this.cmbPelicula.TabIndex = 8;
-            // 
             // frmRenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -359,6 +359,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nueva Renta";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRenta_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AlCerrar);
             this.Load += new System.EventHandler(this.frmRenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeliculas)).EndInit();

@@ -19,9 +19,15 @@ namespace MaxVideoClub
     {
         public static SqlConnection conexion;
         Clases.Devolucion Dev=new Clases.Devolucion();
-
+        int ValorID
+        {
+            get; set;
+        }
         SqlCommand CRelleno;
         SqlDataReader RCRelleno;
+
+        SqlCommand CEliminar;
+     
 
         public frmDevoluciones()
         {
@@ -209,8 +215,10 @@ namespace MaxVideoClub
                 }
                 RCRelleno.Close();
 
+                
                 txtFechaDevolucion.Text = FDev;
                 txtPelicula.Text = Titulo;
+                ValorID = id2;
                 int Multa2 = Convert.ToInt32(Multa);
                 int total = Multa2 + 50;
                 
@@ -234,15 +242,33 @@ namespace MaxVideoClub
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Buen Chico!");
+
+
+            try
+            {
+                CEliminar = new SqlCommand("DELETE FROM Prestamos WHERE id=" + ValorID + " ",conexion);
+                CEliminar.ExecuteNonQuery();
+                Dev.CargarDevoluciones(dgvDevoluciones, txtNumDeCliente.Text);
+                
+                MessageBox.Show("La devolucion se ha realizado con exito.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Imposible realizar devolucion"+ex.ToString());
+                throw;
+            }
+          
             txtPelicula.Text = "";
             txtFechaDevolucion.Text = "";
             txtPagar.Text = "";
+            dgvDevoluciones.Enabled = false;
+            btnPagar.Enabled = false;
+
         }
         //FUNCION PARA RESET EL FRM CUANDO SE CIERRE
         private void frmDevoluciones_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            this.Visible = false;
             this.Controls.Clear();
 
             this.InitializeComponent();
