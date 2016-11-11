@@ -23,26 +23,12 @@ namespace MaxVideoClub
         Clases.Conexion c = new Clases.Conexion();
         Clases.Prestamos p = new Clases.Prestamos();
 
-        public static SqlConnection conexion1;
-        
-        SqlCommand sentencia;
-        SqlDataReader reader;
-        DataTable DataTable;
-        SqlDataAdapter SqlDataAdapter;
+      
         public frmRenta()
         {
             InitializeComponent();
 
-            try
-            {
-                conexion1 = new SqlConnection("Data Source=CONEXIONHPACER;Initial Catalog=videoclub_db1;Integrated Security=True");
-                conexion1.Open();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Base de datos no disponible, error en la conexion." + ex.ToString());
-                throw;
-            }
+        
         }
 
 

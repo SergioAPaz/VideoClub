@@ -23,6 +23,9 @@ namespace MaxVideoClub.Clases
         SqlCommand SentenciaDescuento;
         SqlDataReader reader3;
 
+        SqlCommand SSumaRentaCliente;
+        
+
         SqlCommand SentenciaDescontar;
       
 
@@ -165,18 +168,24 @@ namespace MaxVideoClub.Clases
                     }
                     reader2.Close();
 
-                    //SALVAR RENTA
+                    //SALVAR RENTA (INGRESAR A TABLA PRESTAMOS)
                     int Multa = 0;
                     String NombreCompleto = Name + " " + NameApellido;
                     sentencia = new SqlCommand("INSERT INTO Prestamos(TituloDePelicula,NumeroDeCliente,NombreDeCliente,Fecha_De_Entrega,Fecha_De_Devolucion,Multa) values('" + Titulo + "'," + Number + ",'" + NombreCompleto + "','" + FEntrega + "','" + FDevolucion + "'," + Multa + ")", conexion);
                     sentencia.ExecuteNonQuery();
 
 
-                    //DESCUENTO
+                    //DESCUENTO DE PELICULA EN INVENTARIO
                     int Restantes = DisponiblesINT - 1;
                     int EnRenta3 = EnRenta2 + 1;
                     SentenciaDescontar = new SqlCommand("UPDATE peliculas SET Disponibles=" + Restantes + ", En_renta="+EnRenta3+" WHERE Titulo='" + Titulo + "'  ", conexion);
                     SentenciaDescontar.ExecuteNonQuery();
+
+
+                    //SUMA A LAS RENTAS ACTUALES DEL CLIENTE
+                    SSumaRentaCliente = new SqlCommand("UPDATE clientes SET En_renta=En_renta+1 WHERE NumDeCliente="+Number+" ", conexion);
+                    SSumaRentaCliente.ExecuteNonQuery();
+
                     
                     MessageBox.Show("Renta realizada con exito.");
 

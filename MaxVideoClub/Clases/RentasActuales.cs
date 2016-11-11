@@ -13,11 +13,15 @@ namespace MaxVideoClub.Clases
     class RentasActuales
     {
         public static SqlConnection conexion;
+
         Clases.Conexion c = new Clases.Conexion();
+
         SqlCommand sentencia;
         SqlDataReader reader;
+
         DataTable DataTable;
         SqlDataAdapter SqlDataAdapter;
+
         public RentasActuales()
         {
             try

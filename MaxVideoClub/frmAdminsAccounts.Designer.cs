@@ -40,16 +40,17 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAdmins = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnDgvEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmins)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,14 +153,24 @@
             this.cmbTipo.Size = new System.Drawing.Size(203, 24);
             this.cmbTipo.TabIndex = 5;
             // 
-            // dataGridView1
+            // dgvAdmins
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 165);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(829, 267);
-            this.dataGridView1.TabIndex = 33;
+            this.dgvAdmins.AllowUserToAddRows = false;
+            this.dgvAdmins.AllowUserToDeleteRows = false;
+            this.dgvAdmins.AllowUserToResizeColumns = false;
+            this.dgvAdmins.AllowUserToResizeRows = false;
+            this.dgvAdmins.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvAdmins.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvAdmins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAdmins.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.btnDgvEliminar});
+            this.dgvAdmins.Location = new System.Drawing.Point(12, 165);
+            this.dgvAdmins.Name = "dgvAdmins";
+            this.dgvAdmins.ReadOnly = true;
+            this.dgvAdmins.RowTemplate.Height = 24;
+            this.dgvAdmins.Size = new System.Drawing.Size(829, 267);
+            this.dgvAdmins.TabIndex = 33;
+            this.dgvAdmins.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // groupBox1
             // 
@@ -182,41 +193,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo usuario";
             // 
-            // label1
+            // panel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(504, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 17);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Contraseña:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(167, 90);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 17);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Usuario:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(166, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 17);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Apellido:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(166, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 17);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "Nombre:";
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(34, 24);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(100, 87);
+            this.panel1.TabIndex = 36;
             // 
             // label5
             // 
@@ -227,14 +211,47 @@
             this.label5.TabIndex = 35;
             this.label5.Text = "tipo de cuenta:";
             // 
-            // panel1
+            // label4
             // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(34, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(100, 87);
-            this.panel1.TabIndex = 36;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(166, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 17);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "Nombre:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(166, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 17);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Apellido:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(167, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 17);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Usuario:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(504, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 17);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Contraseña:";
+            // 
+            // btnDgvEliminar
+            // 
+            this.btnDgvEliminar.HeaderText = "Eliminar";
+            this.btnDgvEliminar.Name = "btnDgvEliminar";
+            this.btnDgvEliminar.Width = 64;
             // 
             // frmAdminsAccounts
             // 
@@ -243,7 +260,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(852, 466);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAdmins);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -256,7 +273,7 @@
             this.Load += new System.EventHandler(this.frmAdminsAccounts_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmins)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -277,7 +294,7 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.ComboBox cmbTipo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAdmins;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
@@ -285,5 +302,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewButtonColumn btnDgvEliminar;
     }
 }

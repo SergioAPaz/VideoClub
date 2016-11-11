@@ -12,6 +12,8 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 
+
+
 namespace MaxVideoClub
 {
     
@@ -26,7 +28,7 @@ namespace MaxVideoClub
         SqlCommand CRelleno;
         SqlDataReader RCRelleno;
 
-        SqlCommand CEliminar;
+
      
 
         public frmDevoluciones()
@@ -34,7 +36,7 @@ namespace MaxVideoClub
             InitializeComponent();
             try
             {
-                conexion = new SqlConnection("Data Source=CONEXIONHPACER;Initial Catalog=videoclub_db1;Integrated Security=True;");
+                conexion = new SqlConnection("Data Source=CONEXIONHPACER;Initial Catalog=videoclub_db1;Integrated Security=True;MultipleActiveResultSets=True");
                 conexion.Open();
             }
             catch (Exception ex)
@@ -246,11 +248,12 @@ namespace MaxVideoClub
 
             try
             {
-                CEliminar = new SqlCommand("DELETE FROM Prestamos WHERE id=" + ValorID + " ",conexion);
-                CEliminar.ExecuteNonQuery();
-                Dev.CargarDevoluciones(dgvDevoluciones, txtNumDeCliente.Text);
+               
                 
+                Dev.Factura(ValorID);
+                Dev.CargarDevoluciones(dgvDevoluciones, txtNumDeCliente.Text);//DGV llenado
                 MessageBox.Show("La devolucion se ha realizado con exito.");
+              
             }
             catch (Exception ex)
             {

@@ -54,7 +54,8 @@ namespace MaxVideoClub
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            frmLogin.Show();
+            this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -91,9 +92,10 @@ namespace MaxVideoClub
         {
             this.Visible = false;
             this.Controls.Clear();
-
+           
             this.InitializeComponent();
             frmLogin.Show();
+            this.Close();
         }
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)

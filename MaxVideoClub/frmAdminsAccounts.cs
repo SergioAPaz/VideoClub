@@ -24,7 +24,7 @@ namespace MaxVideoClub
 
         private void frmAdminsAccounts_Load(object sender, EventArgs e)
         {
-
+            CAdmins.CargarAdmins(dgvAdmins);
         }
         //funcion que valida que esten llenos todos los campos
         public Boolean EspaciosVacios()
@@ -37,7 +37,7 @@ namespace MaxVideoClub
             }
             return rEspaciosVacios;
         }
-
+        //BOTON PARA GUARDAR NUEVO MIEMBRO
         private void button1_Click(object sender, EventArgs e)
         {
             Boolean vRec = EspaciosVacios();
@@ -52,6 +52,8 @@ namespace MaxVideoClub
                         {
                             if (CAdmins.GuardarNuevosAdmins(txtNombre.Text, txtApellido.Text, txtUser.Text, txtPassword.Text, cmbTipo.Text)==1)
                             {
+
+                                CAdmins.CargarAdmins(dgvAdmins);
                                 txtUser.Text = "";
                                 txtApellido.Text = "";
                                 txtNombre.Text = "";
@@ -101,6 +103,30 @@ namespace MaxVideoClub
             this.Controls.Clear();
 
             this.InitializeComponent();
+        }
+        //BOTON DE DGV PARA ELIMINAR USUARIO
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvAdmins.CurrentCell.ColumnIndex == 0)
+            {
+
+                int columnI4ndex = 3; //Columna de [User] para consultar registro
+                String UserValue = dgvAdmins[columnI4ndex, dgvAdmins.CurrentCell.RowIndex].Value.ToString();
+
+                if (CAdmins.DeleteAdmin(UserValue)==1)
+                {
+                    MessageBox.Show("Usuario eliminado correctamente.");
+                    CAdmins.CargarAdmins(dgvAdmins);
+                }
+                else
+                {
+                    MessageBox.Show("El usuario no se elimino.");
+                }
+                
+            
+            
+
+            }
         }
     }
 }

@@ -18,6 +18,11 @@ namespace MaxVideoClub.Clases
         SqlCommand CAExistente;
         SqlDataReader RCAExistente;
 
+        SqlCommand SDelete;
+
+        DataTable DataTable;
+        SqlDataAdapter SqlDataAdapter;
+
 
         public Admins()
         {
@@ -75,5 +80,47 @@ namespace MaxVideoClub.Clases
             
             return Bandera;
         }
+
+        public void CargarAdmins(DataGridView dgv)
+        {
+            try
+            {
+                SqlDataAdapter = new SqlDataAdapter("SELECT Nombre,Apellido,[User],Password,Tipo_de_cuenta FROM Admins", Properties.Settings.Default.Conexion);
+
+                DataTable = new DataTable();
+                SqlDataAdapter.Fill(DataTable);
+                dgv.DataSource = DataTable;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Imposible llenar tabla con el contenido" + ex.ToString());
+                throw;
+            }
+        }
+
+        public int DeleteAdmin(string User)
+        {
+            int ConfirmacionDelete = 0;
+
+            try
+            {
+
+                SDelete = new SqlCommand("DELETE FROM Admins WHERE [User]='" + User + "' ", conexion);
+                SDelete.ExecuteNonQuery();
+                ConfirmacionDelete = 1;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Imposible eliminar usuario del sistema. "+ex.ToString());
+                throw;
+            }
+
+            return ConfirmacionDelete;
+
+        }
+        
     }
 }

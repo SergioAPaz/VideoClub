@@ -7,7 +7,9 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace MaxVideoClub.Clases
 {
@@ -21,6 +23,9 @@ namespace MaxVideoClub.Clases
         SqlCommand CClienteExist;
         SqlDataReader RCClienteExist;
 
+        SqlCommand CRellenoFactura;
+        SqlDataReader RCRellenoFactura;
+
         SqlCommand CRelleno;
         SqlDataReader RCRelleno;
 
@@ -28,8 +33,12 @@ namespace MaxVideoClub.Clases
         SqlDataAdapter SqlDataAdapter;
 
         SqlCommand SumaMulta;
-      
 
+        SqlCommand CEliminar;
+
+        SqlCommand SSumarInventario;
+
+        SqlCommand SRestaRentaCliente;
 
 
         public Devolucion()
@@ -155,7 +164,88 @@ namespace MaxVideoClub.Clases
             return Confirmacion;
         }
 
-        
+        public void Factura(int ValorID)
+        {
+            //CREACION DE FACTURA
+            try
+            {
+                String Titulo = "";
+                String NumDeCliente = "";
+                String NombreDeCliente = "";
+                String Fecha_De_Entrega = "";
+                String Fecha_De_Devolucion = "";
+                String Multa = "";
+
+                CRellenoFactura = new SqlCommand("SELECT * FROM Prestamos WHERE id=" + ValorID + " ", conexion);
+                RCRellenoFactura = CRellenoFactura.ExecuteReader();
+              
+                while (RCRellenoFactura.Read())
+                {
+                   
+                    Titulo = (String.Format("{0}", RCRellenoFactura["TituloDePelicula"]));
+                    NumDeCliente = (String.Format("{0}", RCRellenoFactura["NumeroDeCliente"]));
+                    NombreDeCliente = (String.Format("{0}", RCRellenoFactura["NombreDeCliente"]));
+                    Fecha_De_Entrega = (String.Format("{0}", RCRellenoFactura["Fecha_De_Entrega"]));
+                    Fecha_De_Devolucion = (String.Format("{0}", RCRellenoFactura["Fecha_De_Devolucion"]));
+                    Multa = (String.Format("{0}", RCRellenoFactura["Multa"]));
+                    
+                }
+                RCRellenoFactura.Close();
+                //int Cobro = 50+Convert.ToInt32(Multa);
+                Random AleatoryNumber = new Random(DateTime.Now.Minute);
+
+                int x = AleatoryNumber.Next();
+                int Cobro = 50 + Convert.ToInt32(Multa);
+
+                String Archivo = (NumDeCliente + NombreDeCliente + x + ".pdf");
+                Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(Archivo, FileMode.Create));
+                doc.Open();
+                Paragraph paragraph = new Paragraph("Ticket de compra MaxvideoClub\n\n");
+                Paragraph paragraph1 = new Paragraph("Numero de cliente: "+NumDeCliente);
+                Paragraph paragraph2 = new Paragraph("Nombre de cliente: "+NombreDeCliente);
+                Paragraph paragraph3 = new Paragraph("Titulo rentado: " + Titulo);
+                Paragraph paragraph4 = new Paragraph("Fecha de renta: " + Fecha_De_Entrega);
+                Paragraph paragraph5 = new Paragraph("Fecha de devolucion: " + Fecha_De_Devolucion);
+                Paragraph paragraph6 = new Paragraph("Monto total a pagar: $" + Cobro+"\n\n");
+                Paragraph paragraph7 = new Paragraph("Gracias por su preferencia.");
+                doc.Add(paragraph);
+                doc.Add(paragraph1);
+                doc.Add(paragraph2);
+                doc.Add(paragraph3);
+                doc.Add(paragraph4);
+                doc.Add(paragraph5);
+                doc.Add(paragraph6);
+                doc.Add(paragraph7);
+                doc.Close();
+
+                //SENTENCIA PARA SUMAR 1 AL INVENTARIO
+                SSumarInventario = new SqlCommand("UPDATE peliculas SET En_renta=En_renta-1, Disponibles=Disponibles+1 WHERE Titulo='" + Titulo + "' ", conexion);
+                SSumarInventario.ExecuteNonQuery();
+
+                //SENTENCIA PARA RESTAR 1 A LAS RENTAS ACTUALES DEL CLIENTE QUE RENTA
+                //SUMA A LAS RENTAS ACTUALES DEL CLIENTE
+                SRestaRentaCliente = new SqlCommand("UPDATE clientes SET En_renta=En_renta-1 WHERE NumDeCliente=" + NumDeCliente + " ", conexion);
+                SRestaRentaCliente.ExecuteNonQuery();
+
+
+
+
+                //DESPUES DELA CREACION DE LA FACTURA SE REALIZA LA ELIMINACION DE LA RENTA
+                CEliminar = new SqlCommand("DELETE FROM Prestamos WHERE id=" + ValorID + " ", conexion);
+                CEliminar.ExecuteNonQuery();
+
+                
+              
+                MessageBox.Show("La factura se ha generado");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
+        }
 
 
     }

@@ -90,6 +90,7 @@
             // 
             this.txtIfe.Location = new System.Drawing.Point(349, 116);
             this.txtIfe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIfe.MaxLength = 8;
             this.txtIfe.Name = "txtIfe";
             this.txtIfe.Size = new System.Drawing.Size(184, 22);
             this.txtIfe.TabIndex = 13;
