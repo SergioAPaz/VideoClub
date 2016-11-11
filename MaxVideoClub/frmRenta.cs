@@ -34,8 +34,8 @@ namespace MaxVideoClub
 
         private void frmRenta_Load(object sender, EventArgs e)
         {
-            //FUNCION PARA LLENAR DATAGRIDVIEW
-            c.CargarPeliculas(dgvPeliculas);
+           
+            c.CargarPeliculas(dgvPeliculas); //FUNCION PARA LLENAR DATAGRIDVIEW
             txtFiltro.GotFocus += new EventHandler(this.TextGotFocus);
             txtFiltro.LostFocus += new EventHandler(this.TextLostFocus);
 
@@ -156,7 +156,7 @@ namespace MaxVideoClub
             {
 
                 p.insertar(txtNumDeCliente.Text, cmbPelicula.Text, txtFechaEntrega.Text, dtpDevolucion.Text);
-              
+                c.CargarPeliculas(dgvPeliculas);
             }
 
 

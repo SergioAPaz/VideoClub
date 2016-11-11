@@ -55,6 +55,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbFiltro = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -350,11 +351,22 @@
             this.cmbFiltro.Size = new System.Drawing.Size(159, 24);
             this.cmbFiltro.TabIndex = 30;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(637, 139);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(118, 23);
+            this.button2.TabIndex = 31;
+            this.button2.Text = "Enviar correo";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmDevoluciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 503);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.cmbFiltro);
             this.Controls.Add(this.btnEfectuar);
             this.Controls.Add(this.label8);
@@ -411,5 +423,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ComboBox cmbFiltro;
+        private System.Windows.Forms.Button button2;
     }
 }

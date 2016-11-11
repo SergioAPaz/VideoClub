@@ -13,7 +13,12 @@ F:\Mis Archivos\Software projects\C#\MaxVideoClub\MaxVideoClub\MaxVideoClub\obj\
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\MaxVideoClub.exe.config
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\MaxVideoClub.exe
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\MaxVideoClub.pdb
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\itextsharp.dll
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\itextsharp.pdfa.dll
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\itextsharp.xtra.dll
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\itextsharp.xml
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmDevoluciones.resources
+F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmLogin.resources
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmAdminsAccounts.resources
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmModificarParther.resources
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmModificarPelicula.resources
@@ -27,8 +32,3 @@ F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.exe
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.pdb
 F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.csprojResolveAssemblyReference.cache
-F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\obj\Debug\MaxVideoClub.frmLogin.resources
-F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\itextsharp.dll
-F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\itextsharp.pdfa.dll
-F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\itextsharp.xtra.dll
-F:\Mis Archivos\Software projects\C#\VideoClub\VideoClub\MaxVideoClub\bin\Debug\itextsharp.xml

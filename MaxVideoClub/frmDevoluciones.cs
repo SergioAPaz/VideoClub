@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 
 
 
+
 namespace MaxVideoClub
 {
     
@@ -243,29 +244,18 @@ namespace MaxVideoClub
         }
 
         private void btnPagar_Click(object sender, EventArgs e)
-        {
-
-
-            try
-            {
-               
-                
-                Dev.Factura(ValorID);
-                Dev.CargarDevoluciones(dgvDevoluciones, txtNumDeCliente.Text);//DGV llenado
-                MessageBox.Show("La devolucion se ha realizado con exito.");
-              
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Imposible realizar devolucion"+ex.ToString());
-                throw;
-            }
+        {       
+            Dev.Factura(ValorID);
+            Dev.CargarDevoluciones(dgvDevoluciones, txtNumDeCliente.Text);//DGV llenado
           
             txtPelicula.Text = "";
             txtFechaDevolucion.Text = "";
             txtPagar.Text = "";
             dgvDevoluciones.Enabled = false;
             btnPagar.Enabled = false;
+            this.Controls.Clear();
+
+            this.InitializeComponent();
 
         }
         //FUNCION PARA RESET EL FRM CUANDO SE CIERRE
@@ -277,6 +267,11 @@ namespace MaxVideoClub
             this.InitializeComponent();
 
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+         
         }
     }
 }

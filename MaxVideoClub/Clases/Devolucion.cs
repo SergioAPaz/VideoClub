@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 
 namespace MaxVideoClub.Clases
 {
@@ -39,6 +45,9 @@ namespace MaxVideoClub.Clases
         SqlCommand SSumarInventario;
 
         SqlCommand SRestaRentaCliente;
+
+        SqlCommand CCorreo;
+        SqlDataReader RCCorreo;
 
 
         public Devolucion()
@@ -122,30 +131,20 @@ namespace MaxVideoClub.Clases
                             //FUNCION PARA ASIGNAR MULTA CORRESPONDIENTE
                             SumaMulta = new SqlCommand("UPDATE Prestamos SET Multa=" + y + " WHERE id=" + Nid + "  ", conexion);
                            
-                            SumaMulta.ExecuteNonQuery();
-                            
-                           
-                           
+                            SumaMulta.ExecuteNonQuery();              
                         }
                         else 
                         {
                            
-                           
-                        }
-                       
+                        }  
                     }
-                 
                 }
                 RConsultaIDs.Close();
-                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Imposible actulizar multas." + ex.ToString());
-               
             }
-
-            
         }
 
         public Boolean ConsulRentaExistente(string NumDeCliente)
@@ -199,8 +198,9 @@ namespace MaxVideoClub.Clases
 
                 String Archivo = (NumDeCliente + NombreDeCliente + x + ".pdf");
                 Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(Archivo, FileMode.Create));
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Facturas\\"+Archivo, FileMode.Create));
                 doc.Open();
+               
                 Paragraph paragraph = new Paragraph("Ticket de compra MaxvideoClub\n\n");
                 Paragraph paragraph1 = new Paragraph("Numero de cliente: "+NumDeCliente);
                 Paragraph paragraph2 = new Paragraph("Nombre de cliente: "+NombreDeCliente);
@@ -235,13 +235,54 @@ namespace MaxVideoClub.Clases
                 CEliminar = new SqlCommand("DELETE FROM Prestamos WHERE id=" + ValorID + " ", conexion);
                 CEliminar.ExecuteNonQuery();
 
-                
-              
-                MessageBox.Show("La factura se ha generado");
-            }
-            catch (Exception)
-            {
 
+                //POR ULTIMO ENVIAMOS EL CORREO CON LA FACTURA ADJUNTA
+                CCorreo = new SqlCommand("SELECT Email FROM clientes WHERE NumDeCliente="+NumDeCliente+" ", conexion);
+                RCCorreo = CCorreo.ExecuteReader();
+                String Correo="";
+                while (RCCorreo.Read())
+                {
+                    Correo = (String.Format("{0}", RCCorreo["Email"]));
+                }
+                RCCorreo.Close();
+
+                try
+                {
+                   
+                    SmtpClient client = new SmtpClient();
+                    client.Port = 587;
+                    client.Host = "smtp.gmail.com";
+                    client.EnableSsl = true;
+                    client.Timeout = 10000;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = new System.Net.NetworkCredential("casartchihuahua@gmail.com", "casadearte");
+
+                    MailMessage mm = new MailMessage(Correo, Correo, "Factura MaxVideoClub", "<b>Max VideoClub</b><br><br>Muchas gracias por su compra le enviamos su comprobante adjunto.<br><br><b>Saludos.</b>");
+                    mm.BodyEncoding = UTF8Encoding.UTF8;
+                    mm.IsBodyHtml = true;
+                    
+                    System.Net.Mail.Attachment attachment;
+                    attachment = new System.Net.Mail.Attachment("Facturas\\"+Archivo);
+                    mm.Attachments.Add(attachment);
+
+                    mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+
+                    client.Send(mm);
+                    attachment.Dispose();//PARA TERMINAR EL PROCESO QUE UTILIZA EL FILE SYSTEM Y PODER ENVIAR OTRO CORREO SIGUIENTE SIN CRASH
+                    MessageBox.Show("La factura ha sido enviada por correo electronico al cliente.");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error al enviar el correo.");
+                   
+                }
+                
+                MessageBox.Show("Devolucion realizada con exito.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problemas al realizar devolucion" + ex.ToString());
                 throw;
             }
            
