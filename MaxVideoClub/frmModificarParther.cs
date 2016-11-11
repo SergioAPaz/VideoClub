@@ -67,14 +67,14 @@ namespace MaxVideoClub
 
                     try
                     {
-                        MessageBox.Show(Cclients.actualizar(txtNombre.Text, txtApellido.Text, Convert.ToInt32(txtEdad.Text), txtEmail.Text, Convert.ToInt32(txtIfe.Text),Convert.ToInt32(txtTelefono.Text),Convert.ToInt32(txtNumDeCliente.Text)));
+                        Cclients.actualizar(txtNombre.Text, txtApellido.Text, Convert.ToInt32(txtEdad.Text), txtEmail.Text, txtIfe.Text,txtTelefono.Text,Convert.ToInt32(txtNumDeCliente.Text));
 
                         this.Close();
 
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Imposible actualizar registro.");
+                        MessageBox.Show("Imposible actualizar registro." + ex.ToString());
                     }
 
 

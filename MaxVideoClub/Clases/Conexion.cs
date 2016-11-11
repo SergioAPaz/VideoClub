@@ -164,7 +164,7 @@ namespace MaxVideoClub.Clases
 
                 }
                 readerTitOriginal.Close();
-
+              
 
                 //SI NO EXISTE ETA PELICULA ACTUALMENTE RENTADA SE PROCEDE CON LOS CAMBIOS QUE SEAN
                 String fecha1 = DateTime.Now.ToString("dd-MM-yyyy");

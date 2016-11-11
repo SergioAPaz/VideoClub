@@ -18,6 +18,10 @@ namespace MaxVideoClub.Clases
         SqlCommand sentencia;
         SqlDataReader reader;
 
+        SqlCommand CClienteRenta;
+        SqlDataReader RCClienteRenta;
+
+
         SqlCommand CAdeudo;
         SqlDataReader RCAdeudo;
 
@@ -28,7 +32,7 @@ namespace MaxVideoClub.Clases
         {
             try
             {
-                conexion = new SqlConnection("Data Source=CONEXIONHPACER;Initial Catalog=videoclub_db1;Integrated Security=True");
+                conexion = new SqlConnection("Data Source=CONEXIONHPACER;Initial Catalog=videoclub_db1;Integrated Security=True;MultipleActiveResultSets=True");
                 conexion.Open();
             }
             catch (Exception ex)
@@ -90,11 +94,11 @@ namespace MaxVideoClub.Clases
         public int ClienteExistente(string Folio_IFE)
         {
 
-            int Folio = Convert.ToInt32(Folio_IFE);
+           
             int contador = 0;
             try
             {
-                sentencia = new SqlCommand("select * from clientes where Folio_IFE=" + Folio + "  ",conexion);
+                sentencia = new SqlCommand("select * from clientes where Folio_IFE='" + Folio_IFE + "'  ",conexion);
                 reader = sentencia.ExecuteReader();
                 while (reader.Read())
                 {
@@ -146,27 +150,38 @@ namespace MaxVideoClub.Clases
 
 
         //Metodo para Editar peliculas
-        public string actualizar(string Nombre, string Apellido, int Edad, string Mail, int Ife,int Telefono, int NumDeCliente)
+        public void actualizar(string Nombre, string Apellido, int Edad, string Mail, string Ife,string Telefono, int NumDeCliente)
         {
-            string salida = "Registro actualizado con exito.";
-            String fecha1 = DateTime.Now.ToString("dd-MM-yyyy");
-
             try
             {
-               
+                CClienteRenta = new SqlCommand("SELECT NumeroDeCliente FROM Prestamos WHERE NumeroDeCliente=" + NumDeCliente + " ", conexion);
+                RCClienteRenta = CClienteRenta.ExecuteReader();
+                int SiTieneRentas=0;
+                while (RCClienteRenta.Read())
+                {
+                    SiTieneRentas = 1;
+                 
+                }
+                RCClienteRenta.Close();
+                if (SiTieneRentas==0)
+                {
+                    sentencia = new SqlCommand("UPDATE clientes SET Nombre='" + Nombre + "', Apellido='" + Apellido + "',Edad=" + Edad + ",Email='" + Mail + "',Folio_IFE='" + Ife + "',Telefono='" + Telefono + "' WHERE NumDeCliente=" + NumDeCliente + "  ", conexion);
 
-                sentencia = new SqlCommand("UPDATE clientes SET Nombre='" + Nombre + "', Apellido='" + Apellido + "',Edad=" + Edad + ",Email='" + Mail + "',Folio_IFE=" + Ife + ",Telefono="+ Telefono + " WHERE NumDeCliente=" + NumDeCliente + "  ", conexion);
+                    sentencia.ExecuteNonQuery();
 
-                sentencia.ExecuteNonQuery();
+                    MessageBox.Show("Datos de cliente modificados con exito");
 
+                }
+                else
+                {
+                    MessageBox.Show("Imposible modificar datos de cliente si cuenta con rentas actuales.");
+                }
             }
             catch (Exception ex)
             {
-                salida = ("Error al editar registro.  " + ex.ToString());
-
-
+                MessageBox.Show("Error al editar registro.  " + ex.ToString());
             }
-            return salida;
+            
         }
         //BORRAR REGISTRO DE DB
         public void DeleteRegistry(int NumDeClientes)
