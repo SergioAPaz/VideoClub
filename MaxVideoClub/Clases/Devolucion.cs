@@ -17,6 +17,7 @@ namespace MaxVideoClub.Clases
         Clases.Conexion c = new Clases.Conexion();
         SqlCommand ConsultaIDs;
         SqlDataReader RConsultaIDs;
+        SqlDataReader RConsultaIDs2;
         DataTable DataTable;
         SqlDataAdapter SqlDataAdapter;
 
@@ -29,7 +30,7 @@ namespace MaxVideoClub.Clases
         {
             try
             {
-                conexion = new SqlConnection("Data Source=CONEXIONHPACER;Initial Catalog=videoclub_db1;Integrated Security=True");
+                conexion = new SqlConnection("Data Source=CONEXIONHPACER;Initial Catalog=videoclub_db1;Integrated Security=True;MultipleActiveResultSets=True");
                 conexion.Open();
             }
             catch (Exception ex)
@@ -61,6 +62,7 @@ namespace MaxVideoClub.Clases
         {
             try
             {
+                int x = 1;
                 String Fecha = DateTime.Now.ToString("dd-MM-yyyy");
                 DateTime hoy = DateTime.ParseExact(Fecha, "dd-MM-yyyy",
                                          System.Globalization.CultureInfo.InvariantCulture);
@@ -90,15 +92,23 @@ namespace MaxVideoClub.Clases
                     {
                         if (CompararMulta==0)
                         {
+                            if (x==1)
+                            {
+                                MessageBox.Show("Hay nuevas multas!");
+                            }
+                            x= 2;
+                            int y = 50;
                             //FUNCION PARA ASIGNAR MULTA CORRESPONDIENTE
-                            SumaMulta = new SqlCommand("UPDATE Prestamos SET Multa=" + 50 + " WHERE id=" + Nid + "  ", conexion);
+                            SumaMulta = new SqlCommand("UPDATE Prestamos SET Multa=" + y + " WHERE id=" + Nid + "  ", conexion);
+                           
                             SumaMulta.ExecuteNonQuery();
-                            MessageBox.Show("Hay nuevas multas!");
+                            
+                           
                            
                         }
                         else 
                         {
-                            //LA MULTA YA FUE APLICADA ANTERIORMENTE
+                           
                            
                         }
                        
@@ -111,8 +121,10 @@ namespace MaxVideoClub.Clases
             catch (Exception ex)
             {
                 MessageBox.Show("Imposible actulizar multas." + ex.ToString());
-                throw;
+               
             }
+
+            
         }
 
 
