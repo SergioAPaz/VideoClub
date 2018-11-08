@@ -24,10 +24,7 @@ namespace MaxVideoClub.Clases
         SqlDataReader reader3;
 
         SqlCommand SentenciaDescontar;
-        SqlDataReader reader4;
-
-        DataTable DataTable;
-        SqlDataAdapter SqlDataAdapter;
+      
 
 
 

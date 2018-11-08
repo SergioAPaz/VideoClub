@@ -1,6 +1,6 @@
 ﻿namespace MaxVideoClub
 {
-    partial class Devoluciones
+    partial class frmDevoluciones
     {
         /// <summary>
         /// Required designer variable.
@@ -34,10 +34,6 @@
             this.cmbPelicula = new System.Windows.Forms.TextBox();
             this.txtExistencias = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dtpDevolucion = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtFechaEntrega = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtFiltro = new System.Windows.Forms.TextBox();
@@ -49,14 +45,20 @@
             this.stripName = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.dgvPeliculas = new System.Windows.Forms.DataGridView();
+            this.dgvDevoluciones = new System.Windows.Forms.DataGridView();
             this.txtNumDeCliente = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtFechaEntrega = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtFecha = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPeliculas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevoluciones)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,9 +69,10 @@
             this.btnEfectuar.Name = "btnEfectuar";
             this.btnEfectuar.Size = new System.Drawing.Size(137, 23);
             this.btnEfectuar.TabIndex = 29;
-            this.btnEfectuar.Text = "Efectuar devolucion";
+            this.btnEfectuar.Text = "Actualizar";
             this.btnEfectuar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEfectuar.UseVisualStyleBackColor = true;
+            this.btnEfectuar.Click += new System.EventHandler(this.btnEfectuar_Click);
             // 
             // cmbFiltro
             // 
@@ -101,10 +104,10 @@
             // 
             // cmbPelicula
             // 
-            this.cmbPelicula.Location = new System.Drawing.Point(88, 22);
+            this.cmbPelicula.Location = new System.Drawing.Point(154, 22);
             this.cmbPelicula.Name = "cmbPelicula";
             this.cmbPelicula.ReadOnly = true;
-            this.cmbPelicula.Size = new System.Drawing.Size(215, 22);
+            this.cmbPelicula.Size = new System.Drawing.Size(149, 22);
             this.cmbPelicula.TabIndex = 8;
             // 
             // txtExistencias
@@ -119,67 +122,27 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(358, 23);
+            this.label5.Location = new System.Drawing.Point(381, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 17);
             this.label5.TabIndex = 6;
             this.label5.Text = "Total a pagar:";
-            // 
-            // dtpDevolucion
-            // 
-            this.dtpDevolucion.CustomFormat = "dd-MM-yyyy";
-            this.dtpDevolucion.Enabled = false;
-            this.dtpDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDevolucion.Location = new System.Drawing.Point(484, 60);
-            this.dtpDevolucion.MinDate = new System.DateTime(2016, 10, 5, 0, 0, 0, 0);
-            this.dtpDevolucion.Name = "dtpDevolucion";
-            this.dtpDevolucion.Size = new System.Drawing.Size(116, 22);
-            this.dtpDevolucion.TabIndex = 5;
-            this.dtpDevolucion.Value = new System.DateTime(2016, 12, 25, 23, 59, 59, 0);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(336, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Fecha de devolucion:";
-            // 
-            // txtFechaEntrega
-            // 
-            this.txtFechaEntrega.Enabled = false;
-            this.txtFechaEntrega.Location = new System.Drawing.Point(148, 60);
-            this.txtFechaEntrega.Name = "txtFechaEntrega";
-            this.txtFechaEntrega.ReadOnly = true;
-            this.txtFechaEntrega.Size = new System.Drawing.Size(155, 22);
-            this.txtFechaEntrega.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Fecha de entrega:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.Size = new System.Drawing.Size(127, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Pelicula:";
+            this.label1.Text = "Numero de cliente:";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.cmbPelicula);
             this.groupBox2.Controls.Add(this.txtExistencias);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.dtpDevolucion);
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtFechaEntrega);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
@@ -243,7 +206,10 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButton1,
+            this.toolStripSeparator1,
+            this.toolStripSeparator2,
+            this.txtFecha});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -280,26 +246,26 @@
             this.statusStrip1.TabIndex = 26;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // dgvPeliculas
+            // dgvDevoluciones
             // 
-            this.dgvPeliculas.AllowUserToAddRows = false;
-            this.dgvPeliculas.AllowUserToDeleteRows = false;
-            this.dgvPeliculas.AllowUserToOrderColumns = true;
-            this.dgvPeliculas.AllowUserToResizeRows = false;
-            this.dgvPeliculas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvPeliculas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvPeliculas.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvPeliculas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPeliculas.Enabled = false;
-            this.dgvPeliculas.Location = new System.Drawing.Point(12, 171);
-            this.dgvPeliculas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvPeliculas.MultiSelect = false;
-            this.dgvPeliculas.Name = "dgvPeliculas";
-            this.dgvPeliculas.ReadOnly = true;
-            this.dgvPeliculas.RowTemplate.Height = 24;
-            this.dgvPeliculas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPeliculas.Size = new System.Drawing.Size(971, 301);
-            this.dgvPeliculas.TabIndex = 21;
+            this.dgvDevoluciones.AllowUserToAddRows = false;
+            this.dgvDevoluciones.AllowUserToDeleteRows = false;
+            this.dgvDevoluciones.AllowUserToOrderColumns = true;
+            this.dgvDevoluciones.AllowUserToResizeRows = false;
+            this.dgvDevoluciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDevoluciones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvDevoluciones.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvDevoluciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDevoluciones.Enabled = false;
+            this.dgvDevoluciones.Location = new System.Drawing.Point(12, 171);
+            this.dgvDevoluciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvDevoluciones.MultiSelect = false;
+            this.dgvDevoluciones.Name = "dgvDevoluciones";
+            this.dgvDevoluciones.ReadOnly = true;
+            this.dgvDevoluciones.RowTemplate.Height = 24;
+            this.dgvDevoluciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDevoluciones.Size = new System.Drawing.Size(971, 301);
+            this.dgvDevoluciones.TabIndex = 21;
             // 
             // txtNumDeCliente
             // 
@@ -332,7 +298,51 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Numero de Cliente:";
             // 
-            // Devoluciones
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Pelicula:";
+            // 
+            // txtFechaEntrega
+            // 
+            this.txtFechaEntrega.Enabled = false;
+            this.txtFechaEntrega.Location = new System.Drawing.Point(88, 60);
+            this.txtFechaEntrega.Name = "txtFechaEntrega";
+            this.txtFechaEntrega.ReadOnly = true;
+            this.txtFechaEntrega.Size = new System.Drawing.Size(215, 22);
+            this.txtFechaEntrega.TabIndex = 3;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(506, 56);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 33);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Pagar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(111, 24);
+            this.txtFecha.Text = "toolStripLabel1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // frmDevoluciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -344,17 +354,18 @@
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.dgvPeliculas);
+            this.Controls.Add(this.dgvDevoluciones);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Devoluciones";
+            this.Name = "frmDevoluciones";
             this.Text = "Devoluciones";
+            this.Load += new System.EventHandler(this.Devoluciones_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPeliculas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevoluciones)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -370,10 +381,6 @@
         private System.Windows.Forms.TextBox cmbPelicula;
         private System.Windows.Forms.TextBox txtExistencias;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dtpDevolucion;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtFechaEntrega;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtFiltro;
@@ -385,9 +392,15 @@
         private System.Windows.Forms.ToolStripStatusLabel stripName;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.DataGridView dgvPeliculas;
+        private System.Windows.Forms.DataGridView dgvDevoluciones;
         private System.Windows.Forms.TextBox txtNumDeCliente;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtFechaEntrega;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripLabel txtFecha;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
